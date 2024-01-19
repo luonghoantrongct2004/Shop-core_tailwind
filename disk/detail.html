@@ -11,12 +11,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body class="text-[#000] font['Arial', sans-serif] bg-[#f5f5f5]">
+<body class="text-[#000] font['Arial', sans-serif] bg-[#f5f5f5] max-md:bg-white">
     <!-- header -->
-    <header class="sticky-top z-[100]">
-        <div class="bg-fuchsia-200 container-fluid">
+    <header class="sticky-top z-[100] ">
+        <div class="bg-fuchsia-200 container-fluid max-md:hidden">
             <!-- top -->
             <div class="row">
                 <!-- bla bla -->
@@ -69,11 +70,38 @@
                 </div>
             </div>
         </div>
+        <div class="bg-white lg:hidden">
+            <nav class="max-h-full nav-item">
+                <div class="flex justify-between">
+                    <div>
+                        <a href="">
+                            <i class="p-1 text-pink-400 fas fa-arrow-left fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="p-2 max-w-[200px] mr-20">
+                        <h5 class="overflow-hidden line-clamp-1 text-ellipsis" title="">Nuoc hoa
+                            nam bla bla bla bla bla bla bla bla bla bla bla </h5>
+                    </div>
+                    <div class="p-2">
+                        <i class="text-pink-500 fas fa-shopping-cart"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
-    <div class="container">
+    <div class="container max-md:container-fluid">
         <div class="row">
+            <div class="h-[35px] col-lg-12  mt-1 max-md:hidden" id="navContainer">
+                <nav class="ml-[30px] nav-link">
+                    <a href="index.html" class="text-decoration-none">Trang chu ></a>
+                    <a href="" id="myLink" class="text-decoration-none"></a>
+                </nav>
+            </div>
+        </div>
+        <div class="bg-white row lg:max-w-[1296px]" style="margin-left: 0px;">
             <div class="col-lg-5">
-                <div class="carousel slide max-w-[500px] max-h-[500px] ml-[32px]" data-bs-ride="carousel" id="carouselslide">
+                <div class="carousel slide max-w-[500px] max-h-[500px] lg:ml-[32px] max-md:mr-3" data-bs-ride="carousel"
+                    id="carouselslide">
                     <div class="carousel-inner">
                         <!-- Các mục của carousel -->
                         <div class="carousel-item active">
@@ -104,68 +132,333 @@
                         <span class="bg-purple-500 carousel-control-next-icon"></span>
                     </button>
                 </div>
-                    <!-- Ảnh dưới -->
-                    <ol class="flex pt-2">
-                        <li class="transition ease-in-out border-2 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product.png" data-bs-target="#carouselslide" data-bs-slide-to="0" class="w-[100px] h-[100px]">
-                        <li class="transition ease-in-out border-2 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product1.png" data-bs-target="#carouselslide" data-bs-slide-to="1"
-                                class="w-[100px] h-[100px]">
-                        </li>
-                        <li class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product2.png" data-bs-target="#carouselslide" data-bs-slide-to="2"
-                                class="w-[100px] h-[100px]">
-                        </li>
-                        <li class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product1.png" data-bs-target="#carouselslide" data-bs-slide-to="1"
-                                class="w-[100px] h-[100px]">
-                        </li>
-                        <li class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product2.png" data-bs-target="#carouselslide" data-bs-slide-to="2"
-                                class="w-[100px] h-[100px]">
-                        </li>
-                        <li class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product2.png" data-bs-target="#carouselslide" data-bs-slide-to="2"
-                                class="w-[100px] h-[100px]">
-                        </li>
-                        <li class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
-                            <img src="image/product2.png" data-bs-target="#carouselslide" data-bs-slide-to="2"
-                                class="w-[100px] h-[100px]">
-                        </li>
-                    </ol>
+                <!-- Ảnh dưới -->
+                <div id="carousel-container" class="flex justify-between pt-2 space-x-1 max-md:pr-4 lg:ml-[30px]">
+                    <!-- Các phần tử ảnh -->
+                    <div class="transition ease-in-out border-2 delay-50 duration-50 hover:border-purple-600">
+                        <img src="image/product.png" data-bs-target="#carouselslide" data-bs-slide-to="0"
+                            class="w-[100px] h-[100px]">
+                    </div>
+                    <div class="transition ease-in-out border-2 delay-50 duration-50 hover:border-purple-600">
+                        <img src="image/product1.png" data-bs-target="#carouselslide" data-bs-slide-to="1"
+                            class="w-[100px] h-[100px]">
+                    </div>
+                    <div class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
+                        <img src="image/product2.png" data-bs-target="#carouselslide" data-bs-slide-to="2"
+                            class="w-[100px] h-[100px]">
+                    </div>
+                    <div class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
+                        <img src="image/product1.png" data-bs-target="#carouselslide" data-bs-slide-to="1"
+                            class="w-[100px] h-[100px]">
+                    </div>
+                    <div class="transition ease-in-out border-3 delay-50 duration-50 hover:border-purple-600">
+                        <img src="image/product2.png" data-bs-target="#carouselslide" data-bs-slide-to="2"
+                            class="w-[100px] h-[100px]">
+                    </div>
+                </div>
+
             </div>
-<script>$(document).ready(function () {
-    // Lấy danh sách các li
-    var carouselList = $("#carousel-list");
-    // Lấy nút điều khiển trước và sau
-    var carouselPrev = $("#carousel-prev");
-    var carouselNext = $("#carousel-next");
-
-    // Hiển thị thanh điều hướng khi có nhiều hơn 5 mục
-    if (carouselList.children().length > 5) {
-        carouselPrev.show();
-        carouselNext.show();
-    }
-
-    // Bắt sự kiện click nút trước
-    carouselPrev.click(function () {
-        carouselList.animate({
-            marginLeft: "+=100px" // Điều chỉnh khoảng cách trượt
-        }, "fast");
-    });
-
-    // Bắt sự kiện click nút sau
-    carouselNext.click(function () {
-        carouselList.animate({
-            marginLeft: "-=100px" // Điều chỉnh khoảng cách trượt
-        }, "fast");
-    });
-});</script>
-            <div class="col-lg-7"></div>
+            <div class="ml-0 bg-white col-lg-7">
+                <div>
+                    <h5>Jhzc Quần jean ống suông Phối Nhiều Túi Phong Cách retro Mỹ Thời Trang Xuân Thu Cao Cấp Cho Nam
+                    </h5>
+                    <div class="flex">
+                        <div class="p-1">
+                            <small class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </small> |
+                        </div>
+                        <div class="p-1">
+                            <span>
+                                25 danh gia |
+                            </span>
+                        </div>
+                        <div class="p-1">
+                            <span>
+                                308 da ban
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="p-2 ml-3 col-11 bg-slate-100">
+                        <h2>245 000</h2>
+                    </div>
+                </div>
+                <div class="flex pt-4 pb-3">
+                    <span class="pt-2 pr-10 text-pink-400">Mau sac</span>
+                    <div class="flex pl-1 w-85 h-41 ">
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex pt-7">
+                    <span class="pt-2 pr-6 text-pink-400">Kich thuoc</span>
+                    <div class="flex pl-1 w-85 h-41 ">
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                        <div class="flex p-1 border-2">
+                            <img src="image/product.png" alt="" height="30px" width="30px">
+                            <span class="pl-2">Den</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex pt-10">
+                    <span>So luong</span>
+                    <div class="ml-10 input-group" style="width: 130px;">
+                        <div class="border-2 input-group-btn">
+                            <button class="btn">
+                                <i class="">-</i>
+                            </button>
+                        </div>
+                        <input type="text" class="text-center border-2 form-control " value="1">
+                        <div class="border-2 input-group-btn">
+                            <button class=" btn">
+                                <i class="">+</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex pt-10 max-md:hidden">
+                    <div class="mr-3">
+                        <button class="bg-pink-500 lg:w-[199px] lg:h-[48px]">
+                            Them vao gio hang
+                        </button>
+                    </div>
+                    <div class="ml-1">
+                        <button class="bg-pink-500 lg:w-[189px] lg:h-[48px]">
+                            Mua hang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-3">
+            <div class="bg-white">
+                <div class="mb-4 nav nav-tabs" role="tablist">
+                    <a class="nav-item nav-link text-dark active" data-bs-toggle="tab"
+                        href="#tab-pane-1">Description</a>
+                    <a class="nav-item nav-link text-dark" data-bs-toggle="tab" href="#tab-pane-2">Information</a>
+                    <a class="nav-item nav-link text-dark" data-bs-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                </div>
+                <div class="p-2 ml-1 tab-content">
+                    <div class="tab-pane fade show active" id="tab-pane-1">
+                        <h4 class="mb-3">Product Description</h4>
+                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
+                            invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
+                            consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
+                            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
+                            dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                            nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
+                            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                        <p>Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor
+                            consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita
+                            clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum.
+                            Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.</p>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <h4 class="mb-3">Additional Information</h4>
+                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
+                            invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
+                            consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
+                            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
+                            dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                            nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
+                            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="px-0 list-group-item">
+                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                    </li>
+                                    <li class="px-0 list-group-item">
+                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="px-0 list-group-item">
+                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="px-0 list-group-item">
+                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="px-0 list-group-item">
+                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                    </li>
+                                    <li class="px-0 list-group-item">
+                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="px-0 list-group-item">
+                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="px-0 list-group-item">
+                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="mb-4">1 review for "Product Name"</h4>
+                                <div class="mb-4 media">
+                                    <img src="img/user.jpg" alt="Image" class="mt-1 mr-3 img-fluid"
+                                        style="width: 45px;">
+                                    <div class="media-body">
+                                        <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                        <div class="mb-2 text-primary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum
+                                            et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-4">Leave a review</h4>
+                                <small>Your email address will not be published. Required fields are marked *</small>
+                                <div class="my-3 d-flex">
+                                    <p class="mb-0 mr-2">Your Rating * :</p>
+                                    <div class="text-primary">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="message">Your Review *</label>
+                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                    </div>
+                                    <div class="mb-0 form-group">
+                                        <input type="submit" value="Leave Your Review" class="px-3 btn btn-primary">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="container py-5" style="max-width: 1422px;">
+        <h2 class="mb-4 section-title position-relative text-uppercase mx-xl-5"><span class="pr-3 bg-secondary">You May
+                Also Like</span></h2>
+        <div class="pl-12 row">
+            <div class="p-2 hover:translate-y-[-1px] col-2 pb-3 mb-[15px]"
+                style="max-width: 200px; max-height: 304px; height: 304px; width: 200px;">
+                <div class="hover:border-red-500 transition ease-in-out delay-50 duration-50 border-2 w-[188px]">
+                    <a href="#" class="text-black text-decoration-none">
+                        <img src="image/product.png" alt="" srcset=""
+                            style="max-width: 186px; max-height: 186px; height: 186px; width: 186px;">
+                        <div class="pt-2 pl-2">
+                            <h6 class="overflow-hidden line-clamp-2 text-ellipsis max-w-[155px]" title="">Nuoc hoa
+                                nam bla bla bla bla bla bla bla bla bla bla bla </h6>
+                            <div class="position-relative pt-[35px]">
+                                <span>187500</span>
+                                <span style="margin-left: 46px; font-size: 12px;">Da ban 111</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="sticky bottom-0 w-full bg-blue-300 lg:hidden max-h-[55px] text-white">
+        <div class="flex justify-between">
+            <div class="">
+                <button class="pl-5 m-1"
+                    onclick="moForm()">
+                    <i class="text-pink-600 fas fa-comments"></i>Chat
+                </button>
+                <div class="transition-all delay-3000 ease-in-out fixed bottom-0 hidden right-[15px] border-[3px_solid_#f1f1f1] z-[9] max-h-[640px] h-600px"
+                    id="formChat">
+                    <div class="row w-[400px] h-[400px] mb-5px" style="--bs-gutter-x:0px; margin-right: 0px; ">
+                        <form action="" class="max-w-[400px]">
+                            <div class="flex row bg-[#eea6ff] p-[5px]" style="--bs-gutter-x:0px; margin-right: 0px; ">
+                                <div class="col-4">
+                                    <h5>Chat</h5>
+                                </div>
+                                <div class="text-end col-8">
+                                    <button type="button" class="pr-2" onclick="dongForm()">&times;</button>
+                                </div>
+                            </div>
+                            <div class="bg-white h-[270px]">
+                                <form action="">
+    
+                                </form>
+                            </div>
+                            <div class="h-full bg-white">
+                                <input type="text" class="w-full p-[5px] text-start resize-none outline-none h-[55px]"
+                                    placeholder="Bạn hãy nhập lời nhắn.." name="msg" maxlength="100" />
+                                <div class="bg-white">
+                                    <div>
+                                        <span></span>
+                                        <button type="submit"
+                                            class="  p-[16px 20px] border-none cursor-pointer mb-[10px] opacity-[0.8] float-end">
+                                            <img src="image/buttonsend.png" class="w-[30px]" alt="">
+                                    </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                <button class=" ml-4 h-[55px] border-white border-1">
+                    <i class="text-pink-600 fas fa-shopping-cart"></i> 
+                    <p class="text-[10px]">Them vao gio hang</p>
+                </button>
+            <div class="">
+                <button class="bg-pink-500 w-[200px] h-[55px]">
+                    Mua hang
+                </button>
+            </div>
+            
+        </div>
+        
+    </footer>
     <!-- footer -->
-    <div class="bg-[#cba8d0] container-fluid">
+    <div class="bg-[#cba8d0] container-fluid max-md:hidden">
         <div class="row">
             <div class="col-lg-3">
                 LHT
@@ -182,7 +475,7 @@
         </div>
     </div>
     <!-- chat -->
-    <div>
+    <div class="max-md:hidden">
         <button
             class="opacity delay-[0.3s] ease-in-out bg-[#e8bcff] p-[16px 20px] border-none cursor-pointer fixed bottom-[23px] right-[18px] w-100px hover:opacity-[1] flex p-[7px] "
             onclick="moForm()">
@@ -193,10 +486,10 @@
             <div class="row w-[400px] h-[400px] mb-5px" style="--bs-gutter-x:0px; margin-right: 0px; ">
                 <form action="" class="max-w-[400px]">
                     <div class="flex row bg-[#eea6ff] p-[5px]" style="--bs-gutter-x:0px; margin-right: 0px; ">
-                        <div class="col-lg-4">
+                        <div class="col-4">
                             <h5>Chat</h5>
                         </div>
-                        <div class="text-end col-lg-8">
+                        <div class="text-end col-8">
                             <button type="button" class="pr-2" onclick="dongForm()">&times;</button>
                         </div>
                     </div>
@@ -223,6 +516,24 @@
         </div>
     </div>
 </body>
+
+<script>
+    $(document).ready(function () {
+        // Lấy đường dẫn URL
+        var currentURL = window.location.href;
+
+        // Kiểm tra vị trí và đặt nội dung cho thẻ <a>
+        var linkContent;
+        if (currentURL.includes("/shop")) {
+            linkContent = "Shop Page";
+        } else if (currentURL.includes("/detail")) {
+            linkContent = "Chi tiet";
+        }
+
+        // Đặt nội dung cho thẻ <a> bằng jQuery
+        $("#myLink").text(linkContent);
+    });
+</script>
 <script>
     /*Hàm Mở Form*/
     function moForm() {
