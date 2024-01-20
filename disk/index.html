@@ -10,61 +10,94 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<style>
+    @media (min-width: 1201px) {
+        .bgrow {
+            width: 1370px;
+        }
 
-<body class="text-[#000] font['Arial', sans-serif] bg-[#f5f5f5]">
+        .row {
+            width: 1380px;
+        }
+
+        .mpcustom {
+            margin-left: 80px;
+            padding-left: 0px;
+        }
+    }
+</style>
+
+<body class="text-[#000] font['Arial', sans-serif] bg-[#f5f5f5] bgrow mpcustom max-sm:max-w-[360px] ">
     <!-- header -->
     <header class="sticky-top z-[100]">
-        <div class="bg-fuchsia-200 container-fluid">
-            <!-- top -->
-            <div class="row">
-                <!-- bla bla -->
-                <div class="col-lg-6">
-                    <div class="ml-[200px]">
-                        +84 0762956806
+        <div class="md:bg-fuchsia-200 container-fluid max-sm:bg-blue-400">
+            <div class="max-sm:hidden">
+                <!-- top -->
+                <div class="row">
+                    <!-- bla bla -->
+                    <div class="col-lg-6">
+                        <div class="ml-[200px]">
+                            +84 0762956806
+                        </div>
                     </div>
-                </div>
-                <!-- info -->
-                <div class="col-lg-6">
-                    <ul class="flex justify-end px-10 pr-[200px]">
-                        <li class="mr-4">Thông báo</li>
-                        <li class="mr-4">Hỗ trợ</li>
-                        <li class="mr-4">Đăng kí</li>
-                        <li>Đăng nhập</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- bottom -->
-            <div class="row">
-                <!-- logo -->
-                <div class="text-center col-lg-3">
-                    <img src="image/bg.png" class="w-16 pb-6 ml-[260px]" />
-                </div>
-                <!-- search -->
-                <div class="col-lg-7">
-                    <form action="">
-                        <input type="search" name="" id="" placeholder="Tim kiem" class="h-10 w-[810px]">
-                    </form>
-                    <!-- bottom search -->
-                    <div>
-                        <ul class="flex ml-[-30px] pt-[5px] text-[12px] font-semibold">
-                            <li class="pr-[5px]">Quan tay</li>
-                            <li class="pr-[5px]">Giay jodan</li>
-                            <li class="pr-[5px]">Mu cao boi</li>
-                            <li class="pr-[5px]">Sung conan</li>
-                            <li>Dep to ong </li>
+                    <!-- info -->
+                    <div class="col-lg-6">
+                        <ul class="flex justify-end px-10 pr-[200px]">
+                            <li class="mr-4">Thông báo</li>
+                            <li class="mr-4">Hỗ trợ</li>
+                            <li class="mr-4">Đăng kí</li>
+                            <li>Đăng nhập</li>
                         </ul>
                     </div>
                 </div>
-                <!-- cart -->
-                <div class="col-lg-2">
-                    <div class="mt-[10px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" fill="currentColor"
-                            class="bi bi-cart" viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                        </svg>
+                <!-- bottom -->
+                <div class="row">
+                    <!-- logo -->
+                    <div class="text-center col-lg-3">
+                        <img src="image/bg.png" class="w-16 pb-6 ml-[260px]" />
                     </div>
+                    <!-- search -->
+                    <div class="col-lg-7">
+                        <form action="">
+                            <input type="search" name="" id="" placeholder="Tim kiem" class="h-10 w-[810px]">
+                        </form>
+                        <!-- bottom search -->
+                        <div>
+                            <ul class="flex ml-[-30px] pt-[5px] text-[12px] font-semibold">
+                                <li class="pr-[5px]">Quan tay</li>
+                                <li class="pr-[5px]">Giay jodan</li>
+                                <li class="pr-[5px]">Mu cao boi</li>
+                                <li class="pr-[5px]">Sung conan</li>
+                                <li>Dep to ong </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- cart -->
+                    <div class="col-lg-2">
+                        <div class="mt-[10px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" fill="currentColor"
+                                class="bi bi-cart" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex h-[45px] items-center md:hidden">
+                <div class="w-[80%] bg-white">
+                    <i class="p-2 fas fa-search"></i>
+                    <input type="search" name="" id="" placeholder="search" class="outline-none">
+                </div>
+                <div class="w-[15%] ml-8 text-[20px]">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="w-[5%] ml-2 text-[20px]">
+                    <i class="fas fa-user"></i>
                 </div>
             </div>
         </div>
@@ -73,8 +106,9 @@
     <div class="bg-[#ffff] container-fluid">
         <div class="row">
             <!-- banner main -->
-            <div class="col-lg-8">
-                <div class="carousel slide pt-[30px] pl-[110px] pb-[30px]" id="carouselslide" data-bs-ride="carousel">
+            <div class="col-lg-8 max-sm:h-[110px]">
+                <div class="carousel slide md:pt-[30px] md:pl-[110px] md:pb-[30px]" id="carouselslide"
+                    data-bs-ride="carousel">
                     <ol class="carousel-indicators pb-lg-3 pl-[160px]">
                         <li>
                             <button type="button" data-bs-target="#carouselslide" data-bs-slide-to="0"
@@ -109,7 +143,7 @@
                 </div>
             </div>
             <!-- banner phu -->
-            <div class="col-lg-4 ">
+            <div class="col-lg-4 max-sm:hidden">
                 <div class="pt-[30px] pr-[110px]">
                     <div class="relative mb-[5px] overflow-hidden product-banner-offer ">
                         <img src="image/banner.png" class="h-[115px]" />
@@ -122,16 +156,16 @@
         </div>
     </div>
     <!-- category -->
-    <div class="container pl-[22px] pt-[20px] pb-[20px]">
-        <div class="bg-white pb-[20px]">
+    <div class="md:pt-[20px] pb-[20px]">
+        <div class="bg-white">
             <!-- name -->
-            <div class="pl-[20px] pt-[15px] ">
+            <div class="pl-[20px] pt-[15px]">
                 <h2>
                     <span>Danh mục</span>
                 </h2>
             </div>
             <!-- category -->
-            <div class="pl-[80px] row pt-[5px]">
+            <div class="row pt-[5px] md:pl-[12px]">
                 <div class="col-lg-2 pt-[15px] border-2 hover:shadow-[1px_0px_2px_0px_#999]"
                     style="width: 145px; height: 180px; ">
                     <a href="#" class="text-black text-decoration-none ">
@@ -151,13 +185,13 @@
     <!-- product -->
     <!-- name -->
     <div>
-        <div class="max-w-[1300px] ml-[110px] h-[68px] bg-white">
+        <div class="h-[68px] bg-white">
             <h4 class="text-center uppercase p-[20px] text-black mb-[20px] border-b-4">sản phẩm dành cho bạn</h4>
         </div>
-        <div class="container text-white bg-white" style="max-width: 1300px;">
+        <div class="text-white bg-white">
             <!-- product -->
-            <div class="pl-12 row">
-                <div class="p-2 hover:translate-y-[-1px] col-lg-2 pb-3 mb-[15px]"
+            <div class="row md:max-w-[1380px] p-2">
+                <div class="hover:translate-y-[-1px] col-lg-2 pb-3 mb-[15px]"
                     style="max-width: 200px; max-height: 304px; height: 304px; width: 200px;">
                     <div class="hover:border-red-500 transition ease-in-out delay-50 duration-50 border-2 w-[188px]">
                         <a href="#" class="text-black text-decoration-none">
@@ -199,41 +233,38 @@
     <!-- chat -->
     <div>
         <button
-            class="opacity delay-[0.3s] ease-in-out bg-[#e8bcff] p-[16px 20px] border-none cursor-pointer fixed bottom-[23px] right-[18px] w-100px hover:opacity-[1] flex p-[7px] "
+            class="bg-[#e8bcff] p-[16px 20px] border-none cursor-pointer fixed bottom-[23px] right-[18px] w-100px hover:opacity-[1] flex p-[7px] "
             onclick="moForm()">
             <img src="image/chat.png" width="26px" class="pr-1" /> Chat
         </button>
-        <div class="transition-all delay-3000 ease-in-out fixed bottom-0 hidden right-[15px] border-[3px_solid_#f1f1f1] z-[9] max-h-[640px] h-600px"
+        <div class="fixed bottom-2 hidden right-[15px] border-[3px_solid_#f1f1f1] z-[9] max-h-[640px] h-600px"
             id="formChat">
-            <div class="row w-[400px] h-[400px] mb-5px" style="--bs-gutter-x:0px; margin-right: 0px; ">
-                    <form action="" class="max-w-[400px]">
-                        <div class="flex row bg-[#eea6ff] p-[5px]" style="--bs-gutter-x:0px; margin-right: 0px; ">
-                            <div class="col-lg-4">
-                                <h5>Chat</h5>
-                            </div>
-                            <div class="text-end col-lg-8">
-                                <button type="button" class="pr-2" onclick="dongForm()">&times;</button>
-                            </div>
+            <div class="row w-[350px] h-[340px] mb-5px" style="--bs-gutter-x:0px; margin-right: 0px; ">
+                <form action="" class="max-w-[400px]">
+                    <div class="flex row bg-[#eea6ff] p-[5px] w-[350px]" style="--bs-gutter-x:0px; margin-right: 0px; ">
+                        <div class="col-lg-4">
+                            <h5>Chat</h5>
                         </div>
-                        <div class="bg-white h-[270px]">
-                            <form action="">
-                                
-                            </form>
+                        <div class="text-end col-lg-8">
+                            <button type="button" class="pr-2" onclick="dongForm()"><i
+                                    class="fas fa-close"></i></button>
                         </div>
-                        <div class="h-full bg-white">
-                            <input type="text" class="w-full p-[5px] text-start resize-none outline-none h-[55px]"
-                                placeholder="Bạn hãy nhập lời nhắn.." name="msg" maxlength="100" />
-                            <div class="bg-white">
-                                <div>
-                                    <span></span>
-                                    <button type="submit"
-                                        class="  p-[16px 20px] border-none cursor-pointer mb-[10px] opacity-[0.8] float-end">
-                                        <img src="image/buttonsend.png" class="w-[30px]" alt="">
-                                </div>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="bg-white h-[270px]">
+                        <form action="">
+
+                        </form>
+                    </div>
+                    <div class="flex h-full bg-white">
+                        <input type="text" class="w-full text-start resize-none outline-none h-[20px] p-2"
+                            placeholder="Bạn hãy nhập lời nhắn.." name="msg" maxlength="100" />
+
+                        <button type="submit"
+                            class=" border-none cursor-pointer h-[10px] opacity-[0.8] float-end mr-3">
+                            <img src="image/buttonsend.png" class="w-[30px]" alt="">
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
