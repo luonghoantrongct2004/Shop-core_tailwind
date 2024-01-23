@@ -1,0 +1,323 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Shop.Web
+build_property.RootNamespace = Shop.Web
+build_property.ProjectDir = C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcQ29uZmlybUVtYWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ErrorConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcRXJyb3JDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ExternalLoginConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcRXh0ZXJuYWxMb2dpbkNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ExternalLoginFailure.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcRXh0ZXJuYWxMb2dpbkZhaWx1cmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcRm9yZ290UGFzc3dvcmRDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcTG9ja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcUmVnaXN0ZXJDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcUmVzZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcUmVzZXRQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/SendCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcU2VuZENvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/UseRecoveryCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcVXNlUmVjb3ZlcnlDb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/VerifyAuthenticatorCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcVmVyaWZ5QXV0aGVudGljYXRvckNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/AdminAccount/VerifyCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xBZG1pbkFjY291bnRcVmVyaWZ5Q29kZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Account/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xDYXRlZ29yaWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/Categories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xDYXRlZ29yaWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/Categories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xDYXRlZ29yaWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xDYXRlZ29yaWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xDYXRlZ29yaWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Blog/Views/News/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmxvZ1xWaWV3c1xOZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Brand/Views/Brands/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnJhbmRcVmlld3NcQnJhbmRzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Order/Views/Orders/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJcVmlld3NcT3JkZXJzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Pay/Views/TransactionPays/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5XFZpZXdzXFRyYW5zYWN0aW9uUGF5c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Product/Views/ProductsAdmin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvZHVjdFxWaWV3c1xQcm9kdWN0c0FkbWluXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Areas/Shipping/Views/ShippingAdmin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hpcHBpbmdcVmlld3NcU2hpcHBpbmdBZG1pblxfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PREDATOR/OneDrive/Tài liệu/AspNet-Tailwind/ShopGUI/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zaxzw4p4pf
