@@ -1,0 +1,204 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css">
+    </link>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<style>
+    @media (min-width: 1201px) {
+        .bgrow {
+            width: 1370px;
+        }
+
+        .mpcustom {
+            margin-left: 80px;
+            padding-left: 0px;
+        }
+    }
+    .pd {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    /* Định dạng radio button */
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        width: 10px;
+        /* Kích thước chiều rộng của hình vuông */
+        height: 10px;
+        /* Kích thước chiều cao của hình vuông */
+        border: 1px solid #000;
+        /* Màu viền của hình vuông */
+        margin-right: 10px;
+        /* Khoảng cách giữa radio button và văn bản */
+    }
+
+    /* Tùy chỉnh giao diện khi radio button được chọn */
+    input[type="radio"]:checked {
+        background-color: #6086d4;
+        /* Màu nền khi được chọn */
+    }
+
+    .colorful-text {
+        background: linear-gradient(#fff0, #fff0), linear-gradient(101deg, #3b82f6, #c084fc, #ef4444, #f97316, #fde047);
+        -webkit-background-clip: text;
+        color: transparent;
+        display: inline-block;
+    }
+</style>
+
+<body class="text-[#000] font['Arial', sans-serif] bg-[#f5f5f5] max-sm:max-w-[360px] ">
+    <!-- header -->
+    <header class="sticky-top z-[100]">
+        <div class="md:bg-fuchsia-200 container-fluid max-sm:bg-blue-400">
+            <div class="max-sm:hidden">
+                <!-- top -->
+                <div class="row">
+                    <!-- bla bla -->
+                    <div class="col-lg-6">
+                        <div class="ml-[75px]">
+                            +84 0762956806
+                        </div>
+                    </div>
+                    <!-- info -->
+                    <div class="col-lg-6">
+                        <ul class="flex justify-end px-10 pr-[55px]">
+                            <li class="mr-4">Thông báo</li>
+                            <li class="mr-4">Hỗ trợ</li>
+                            <li class="mr-4">Đăng kí</li>
+                            <li>Đăng nhập</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- bottom -->
+                <div class="row">
+                    <!-- logo -->
+                    <div class="text-center col-lg-3">
+                        <span class="font-semibold text-[25px] uppercase colorful-text">trongshopping</span>
+                    </div>
+                    <!-- search -->
+                    <div class="col-lg-7">
+                        <form action="">
+                            <input type="search" name="" id="" placeholder="Tim kiem"
+                                class="h-10 p-2 outline-none w-[810px]">
+                        </form>
+                        <!-- bottom search -->
+                        <div>
+                            <ul class="flex ml-[-30px] pt-[5px] text-[12px] font-semibold">
+                                <li class="pr-[5px]">Quan tay</li>
+                                <li class="pr-[5px]">Giay jodan</li>
+                                <li class="pr-[5px]">Mu cao boi</li>
+                                <li class="pr-[5px]">Sung conan</li>
+                                <li>Dep to ong </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- cart -->
+                    <div class="col-lg-2">
+                        <div class="mt-[10px]">
+                            <i class="fas fa-shopping-cart text-[25px] text-pink-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex h-[45px] items-center md:hidden">
+                <div class="w-[80%] bg-white">
+                    <i class="p-2 fas fa-search"></i>
+                    <input type="search" name="" id="" placeholder="search" class="outline-none">
+                </div>
+                <div class="w-[15%] ml-8 text-[20px]">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="w-[5%] ml-2 text-[20px]">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container-fluid bgrow pd">
+        <div class="flex max-sm:w-[360px] pd">
+            <div class="md:w-[300px] max-sm:hidden">
+                <h6 class="pb-2 font-bold uppercase"><i class="pt-4 text-pink-500 fas fa-filter"></i> Bộ lọc tìm kiếm
+                </h6>
+                <div>
+                    <h6><i class="mr-2 fas fa-arrow-right"></i>Theo Giá</h6>
+                    <div class="flex flex-column">
+                        <div class="p-2">
+                            <input type="radio" class="scale-[1.3]" name="price" value="0-100">
+                            <span class="ml-2">Thấp hơn 100</span>
+                        </div>
+                        <div class="p-2">
+                            <input type="radio" class="scale-[1.4] " name="price" value="100-500">
+                            <span class="ml-2">100-500</span>
+                        </div>
+                        <div class="p-2">
+                            <input type="radio" class="scale-[1.5] " name="price" value="500-1tr">
+                            <span class="ml-2">500-1,000</span>
+                        </div>
+                        <div class="p-2">
+                            <input type="radio" class="scale-[1.6] " name="price" value="1tr-2tr">
+                            <span class="ml-2">1,000-2,000</span>
+                        </div>
+                        <div class="p-2">
+                            <input type="radio" class="scale-[1.7] " name="price" value="trên 2tr">
+                            <span class="ml-2">Trên 2,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-[1070px] md:pt-4">
+                <div class="flex md:h-[50px] md:p-2 bg-white items-center md:ml-6 md:mr-5 max-sm:w-[360px]">
+                    <div class="md:hidden"><i class="fas fa-filter text-[25px] p-2 text-pink-400"><span class="text-[15px] font-monospace">Lọc</span></i></div>
+                    <span class="max-sm:hidden">Sắp xếp theo</span>
+                    <div class="md:pl-3 max-sm:pl-[8rem]">
+                        <select name="" id="" class="">
+                            <option value="">Giá thấp đến cao</option>
+                            <option value="">Giá cao đến thấp</option>
+                        </select>
+                    </div>
+                    <div class="md:ml-[700px] max-sm:hidden">
+                        Trang
+                    </div>
+                </div>
+                <div class="md:pt-3">
+                    <div class="text-white bg-[#f5f5f5]">
+                        <!-- product -->
+                        <div class="md:max-w-[1380px] max-sm:max-w-[360px] md:p-2 flex-wrap flex">
+                            <div class="hover:translate-y-[-1px] pb-3 md:mb-[15px] max-sm:w-[179px] md:ml-4 ">
+                                <div
+                                    class="bg-white hover:border-red-500 transition ease-in-out delay-50 duration-50 border-1 md:w-[188px] max-sm:max-w-[180pxpx]">
+                                    <a href="#" class="text-black text-decoration-none">
+                                        <img src="image/product.png" alt="" srcset=""
+                                            class="max-sm:max-w-[178px] max-sm-w-[179px] md:max-w-[186px] md:max-h-[160px] md:w-[186px]">
+                                        <div class="pt-2 pl-2">
+                                            <h6 class="overflow-hidden line-clamp-2 text-ellipsis max-w-[155px]"
+                                                title="">Nuoc hoa
+                                                nam bla bla bla bla bla bla bla bla bla bla bla </h6>
+                                            <div class="position-relative pt-[35px]">
+                                                <span>187500</span>
+                                                <span style="margin-left: 46px; font-size: 12px;">Da ban 111</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- xem them -->
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
