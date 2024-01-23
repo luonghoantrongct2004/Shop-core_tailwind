@@ -25,12 +25,12 @@
             padding-left: 0px;
         }
     }
-    
+
     button.active {
-            background-color: #5f0ce6;
-            color: #fff;
-        }
-        
+        background-color: #5f0ce6;
+        color: #fff;
+    }
+
     .colorful-text {
         background: linear-gradient(#fff0, #fff0), linear-gradient(101deg, #3b82f6, #c084fc, #ef4444, #f97316, #fde047);
         -webkit-background-clip: text;
@@ -41,7 +41,7 @@
 
 <body class="text-[#000] font['Arial', sans-serif] bg-[#f5f5f5] max-sm:max-w-[360px] ">
     <!-- header -->
-    <header class="sticky-top z-[100]">
+    <header class="sticky-top z-[100] max-sm:hidden">
         <div class="md:bg-fuchsia-200 container-fluid max-sm:bg-blue-400">
             <div class="max-sm:hidden">
                 <!-- top -->
@@ -108,85 +108,125 @@
             </div>
         </div>
     </header>
-    <div class="md:max-w-[1370px] mpcustom md:ml-[83px] md:h-40px md:p-2 mb-2 bg-white max-sm:hidden">
-        <div class="flex md:w-[1070px]">
-            <span class="w-[535px] ml-4">Sản phẩm</span>
-            <span class="w-[70px] ml-10">Đơn giá</span>
-            <span class="w-[80px] ml-10">Số lượng</span>
-            <span class="w-[80px] ml-10">Số tiền</span>
-            <span class="w-[80px] ml-10">Thao tác</span>
-        </div>
-    </div>
-    <div class="bg-white md:hidden max-sm:p-2">
-        <div class="flex">
-            <span class="w-[535px]"><i class="fas fa-arrow-left text-[20px]"></i></span>
-            <span class="w-[70px] ml-10 text-[18px]">Xóa</span>
-        </div>
-    </div>
-    <div class="flex md:max-w-[1370px] mpcustom max-sm:pt-2">
-        <div class="bg-white md:w-[1000px] mr-[10px] max-sm:max-w-[360px]">
-            <div class="flex ">
-                <input type="checkbox" class="w-[20px] m-2 text-blue-300">
-                <div class="flex m-2 max-sm:w-[360px]">
-                    <img src="image/product.png" alt="" class="w-[80px] h-80px">
-                    <span class="md:w-[490px] pl-2 pt-4">hhhhhh</span>
-                    <span class="md:w-[100px] pt-4 max-sm:hidden pl-3">123</span>
-                    <div class="max-sm:w-[50px] md:w-[100px] flex md:mt-[20px] md:h-[35px] border-2">
-                        <button class="border-1"><i class="fas fa-plus md:h-[10px] w-[30px]"></i></button>
-                        <input type="text" name="" id="" value="1" class="pl-3 w-[35px] border-1">
-                        <button class="border-1 w-[30px]"><i class="fas fa-minus"></i></button>
-                    </div>
-                    <span class="md:w-[100px] max-sm:w-[30px] pt-4 text-end">123.000</span>
-                    <div class="md:w-[120px] max-sm:w-[100px] pt-3 text-end">
-                        <a class="btn" href="#">Xóa</a>
-                    </div>
-                </div>
+    <main>
+        <div class="md:max-w-[1370px] mpcustom md:ml-[83px] md:h-40px md:p-2 mb-2 bg-white max-sm:hidden">
+            <div class="flex md:w-[1070px]">
+                <span class="w-[535px] ml-4">Sản phẩm</span>
+                <span class="w-[70px] ml-10">Đơn giá</span>
+                <span class="w-[80px] ml-10">Số lượng</span>
+                <span class="w-[80px] ml-10">Số tiền</span>
+                <span class="w-[80px] ml-10">Thao tác</span>
             </div>
         </div>
-        <div class="bg-white md:max-w-[360px] md:w-[360px]">
-            <div class="m-2 max-sm:hidden">
-                <h5>Tóm tắt</h5>
-                <div >
-                    <div class="flex flex-column">
-                        <span class="pb-2">Địa chỉ giao hàng</span>
-                        <select name="" id="">
-                            <option value="">Cần thơ</option>
-                            <option value="">Cần thơ 2</option>
-                        </select>
-                    </div>
-                    <hr>
-                    <div >
-                        <label for="">Tổng tiền 2 sản phẩm</label>
-                        <span class="ml-[60px]">120.000</span>
-                    </div>
-                    <hr>
-                    <div>
-                        <label for="">Phí vận chuyển</label>
-                        <span class="ml-[108px]">120.000</span>
-                    </div>
-                    <hr>
-                    <div>
-                        <label for="">Giảm giá</label>
-                        <span class="ml-[151px]">120.000</span>
-                    </div>
-                    <hr>
-                    <div>
-                        <label for="" class="pb-2">Phương thức thanh toán</label>
-                        <div>
-                            <button class="p-2 border-1" onclick="selectPaymentMethod('creditCard')"
-                                id="creditCardButton">Thẻ tín dụng</button>
-                            <button class="p-2 border-2" onclick="selectPaymentMethod('cashOnDelivery')"
-                                id="cashOnDeliveryButton">Thanh toán khi nhận hàng</button>
+        <div class="bg-white md:hidden max-sm:p-2">
+            <div class="flex">
+                <span class="md:w-[535px] max-sm:w-[143px]"><i class="fas fa-arrow-left text-[20px]"></i></span>
+                <span class="max-sm:w-[93px] font-semibold text-[18px]">Giỏ hàng</span>
+                <span class="md:w-[70px] max-sm:w-[110px] md:ml-10 text-[18px] max-sm:text-end">Xóa</span>
+            </div>
+        </div>
+        <div class="flex md:max-w-[1370px] mpcustom max-sm:pt-2">
+            <div class="bg-white md:w-[1000px] mr-[10px] max-sm:max-w-[360px]">
+                <div class="flex ">
+                    <input type="checkbox" class="w-[20px] m-2 text-blue-300">
+                    <div class="flex m-2 max-sm:w-[360px]">
+                        <img src="image/product.png" alt="" class="md:w-[80px] max-sm:w-[60px] h-80px">
+                        <span class="md:w-[490px] pl-2 pt-4 max-sm:hidden">hhhhhh</span>
+
+                        <div class="max-sm:w-[137px] md:hidden">
+                            <span class="md:w-[490px] pl-2 pt-1">hhhhhh</span>
+                            <div class="flex p-2">
+                                <button class="border-1"><i class="fas fa-plus md:h-[10px] w-[30px]"></i></button>
+                                <input type="text" name="" id="" value="1" class="pl-3 w-[35px] border-1">
+                                <button class="border-1 w-[30px]"><i class="fas fa-minus"></i></button>
+                            </div>
+                        </div>
+
+                        <span class="md:w-[100px] pt-4 max-sm:hidden pl-3">123</span>
+                        <div class="max-sm:w-[50px] md:w-[100px] flex md:mt-[20px] md:h-[35px] border-2 max-sm:hidden">
+                            <button class="border-1"><i class="fas fa-plus md:h-[10px] w-[30px]"></i></button>
+                            <input type="text" name="" id="" value="1" class="pl-3 w-[35px] border-1">
+                            <button class="border-1 w-[30px]"><i class="fas fa-minus"></i></button>
+                        </div>
+                        <span class="md:w-[100px] max-sm:w-[30px] pt-4 text-end">123.000</span>
+                        <div class="md:w-[120px] max-sm:w-[100px] pt-3 text-end">
+                            <a class="btn" href="#">Xóa</a>
                         </div>
                     </div>
-                    <hr>
                 </div>
-                <div class="ml-[113px]">
-                    <button class="p-2 bg-pink-500 ">Đặt hàng</button>
+            </div>
+            <div class="bg-white md:max-w-[360px] md:w-[360px]">
+                <div class="m-2 max-sm:hidden">
+                    <h5>Tóm tắt</h5>
+                    <div>
+                        <div class="flex flex-column">
+                            <span class="pb-2">Địa chỉ giao hàng</span>
+                            <select name="" id="" class="border-2 border-pink-300">
+                                <option value="">Cần thơ</option>
+                                <option value="">Cần thơ 2</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div>
+                            <label for="">Tổng tiền 2 sản phẩm</label>
+                            <span class="ml-[60px]">120.000</span>
+                        </div>
+                        <hr>
+                        <div>
+                            <label for="">Phí vận chuyển</label>
+                            <span class="ml-[108px]">120.000</span>
+                        </div>
+                        <hr>
+                        <div>
+                            <label for="">Giảm giá</label>
+                            <span class="ml-[151px]">120.000</span>
+                        </div>
+                        <hr>
+                        <div>
+                            <label for="" class="pb-2">Phương thức thanh toán</label>
+                            <div>
+                                <button class="p-2 border-1" onclick="selectPaymentMethod('creditCard')"
+                                    id="creditCardButton">Thẻ tín dụng</button>
+                                <button class="p-2 border-2" onclick="selectPaymentMethod('cashOnDelivery')"
+                                    id="cashOnDeliveryButton">Thanh toán khi nhận hàng</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <label for="">Tổng tiền</label>
+                            <span class="ml-[151px]">120.000</span>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="ml-[113px]">
+                        <button class="p-2 text-white bg-pink-500">Đặt hàng</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </main>
+    <footer class="fixed bottom-0 w-full bg-blue-300 md:hidden max-h-[50px] text-white">
+        <div class="flex justify-between text-[13px]">
+            <div class="p-2 mt-2 border-r-2">
+                <label for="selectAllCheckbox">
+                    <input type="checkbox" id="selectAllCheckbox" name=""> Chọn tất cả
+                </label>
+            </div>
+            <div class="flex flex-column ">
+                <label for="" class="pt-1">Thành tiền</label>
+                <span class="text-center">123.000 đ</span>
+            </div>
+            <a href="" class="text-white outline-none">
+                <div class="">
+                    <button class="hover:bg-pink-600 bg-pink-500  w-[145px] h-[50px]">
+                        <h6 class="m-2 text-center ">Thanh toán</h6>
+                    </button>
+                </div>
+            </a>
+        </div>
+    </footer>
+
     <script>
         let selectedPaymentMethod = null;
 
