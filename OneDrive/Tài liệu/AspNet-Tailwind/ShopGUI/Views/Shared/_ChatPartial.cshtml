@@ -1,0 +1,40 @@
+﻿<div>
+    <button class="rounded-3 bg-[#e8bcff] p-[16px 20px] border-none cursor-pointer fixed bottom-[23px] right-[18px] w-100px hover:opacity-[1] flex p-[7px] "
+            onclick="moForm()">
+        <img src="image/chat.png" width="26px" class="pr-1" /> Chat
+    </button>
+    <div class="fixed bottom-2 hidden right-[15px] border-[3px_solid_#f1f1f1] z-[9] md:max-h-[640px] md:h-600px"
+         id="formChat">
+        <div class="row md:w-[350px] md:h-[340px] md:mb-5px max-sm:h-[333px] max-sm:w-[280px] max-sm:mb-[10px]"
+             style="--bs-gutter-x:0px; margin-right: 0px; ">
+            <form action="" class="max-w-[400px]">
+                <div class="flex row bg-[#eea6ff] md:p-[5px] md:w-[350px] max-sm:max-h-[40px] max-sm:h-[40px]"
+                     style="--bs-gutter-x:0px; margin-right: 0px; ">
+                    <div class="flex col-lg-4">
+                        <h5 class="m-[6px]">Chat</h5>
+                        <button type="button" class="md:hidden ml-[203px]" onclick="dongForm()">
+                            <i class="fas fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="text-end col-lg-8 max-sm:hidden">
+                        <button type="button" class="pr-2" onclick="dongForm()">
+                            <i class="fas fa-close"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white h-[270px]">
+                    <form action="">
+                    </form>
+                </div>
+                <div class="flex h-full bg-white max-sm:max-h-[40px]">
+                    <input type="text" class="w-full text-start resize-none outline-none h-[20px] p-2"
+                           placeholder="Bạn hãy nhập lời nhắn.." name="msg" maxlength="100" />
+
+                    <button type="submit" class=" border-none cursor-pointer h-[10px] opacity-[0.8] float-end mr-3">
+                        <img src="image/buttonsend.png" class="w-[30px]" alt="">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
