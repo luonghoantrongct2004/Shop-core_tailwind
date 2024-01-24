@@ -1,0 +1,29 @@
+﻿@media (min-width: 1201px) {
+    .bgrow {
+        width: 1370px;
+    }
+
+    .mpcustom {
+        margin-left: 80px;
+        padding-left: 0px;
+    }
+}
+
+.colorful-text {
+    background: linear-gradient(#fff0, #fff0), linear-gradient(101deg, #3b82f6, #c084fc, #ef4444, #f97316, #fde047);
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+header {
+    background: linear-gradient(230deg, #ffbed4, #7ae2df);
+}
+
+body {
+    background: linear-gradient(230deg, #ffbed4, #7ae2df);
+}
+
+.hsm {
+    background: linear-gradient(360deg, #ffbed4, #a8ece9);
+}
