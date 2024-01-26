@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopDataAccess.Entity.Product
 {
+    [Table("ProductVideo")]
     public class ProductVideo
     {
         [Key]

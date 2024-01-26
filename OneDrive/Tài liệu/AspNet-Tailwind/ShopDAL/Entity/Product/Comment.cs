@@ -7,6 +7,7 @@ namespace ShopDataAccess.Entity.Product
     {
         [Key]
         public int ComnmentId { get; set; }
+        [ForeignKey("Users")]
         public int UserId { get; set; }
         public int ProductId { get; set; }
         [Display(Name = "Nội dung")]

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Shop.DAL.Entity.Product;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopDataAccess.Entity.Product
@@ -45,6 +46,8 @@ namespace ShopDataAccess.Entity.Product
         public string MetaTitle { get; set; }
         [Display(Name = "Mô tả tiêu đề")]
         public string MetaDescription { get; set; }
+        public ProductFashion FashionProduct { get; set; }
+        public ProductFruit FruitProduct { get; set; }
         public ProductImage ProductImage { get; set; }
         public ProductVideo ProductVideo { get; set; }
     }
