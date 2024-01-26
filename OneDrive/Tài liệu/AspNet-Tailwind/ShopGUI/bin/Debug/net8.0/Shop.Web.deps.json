@@ -29,7 +29,8 @@
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.0",
           "MimeKit": "4.3.0",
-          "Shop.BLL": "1.0.0"
+          "Shop.BLL": "1.0.0",
+          "Shop.DTO": "1.0.0"
         },
         "runtime": {
           "Shop.Web.dll": {}

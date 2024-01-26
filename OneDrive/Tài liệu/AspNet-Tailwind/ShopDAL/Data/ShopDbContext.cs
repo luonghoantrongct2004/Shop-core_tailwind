@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Shop.DAL.Entity.Product;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Entity.Order;
 using ShopDataAccess.Entity.Pay;

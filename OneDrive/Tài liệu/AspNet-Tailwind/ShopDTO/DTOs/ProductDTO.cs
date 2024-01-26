@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Shop.DTO.DTOs
 {
@@ -25,7 +19,12 @@ namespace Shop.DTO.DTOs
 
         [Display(Name = "Số lượng sản phẩm")]
         public int Quantity { get; set; }
-
+        [Display(Name = "Số lượng đã bán")]
+        public int SoldQuantity { get; set; }
+        [Display(Name = "Kích thước")]
+        public string Size { get; set; }
+        [Display(Name = "Màu sắc")]
+        public string Color { get; set; }
         public string Image { get; set; }
         public string Video { get; set; }
 

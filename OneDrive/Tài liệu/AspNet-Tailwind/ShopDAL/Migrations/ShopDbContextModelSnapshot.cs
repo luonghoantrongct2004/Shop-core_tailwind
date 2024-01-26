@@ -163,6 +163,10 @@ namespace ShopDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FashionProductId"));
 
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -176,33 +180,6 @@ namespace ShopDataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("ProductFashion");
-                });
-
-            modelBuilder.Entity("Shop.DAL.Entity.Product.ProductFruit", b =>
-                {
-                    b.Property<int>("FruitProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FruitProductId"));
-
-                    b.Property<string>("FruitType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Ripeness")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("FruitProductId");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
-
-                    b.ToTable("ProducFruit");
                 });
 
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
@@ -441,10 +418,6 @@ namespace ShopDataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MetaDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -469,9 +442,8 @@ namespace ShopDataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Video")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SoldQuantity")
+                        .HasColumnType("int");
 
                     b.HasKey("ProductId");
 
@@ -695,15 +667,6 @@ namespace ShopDataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Shop.DAL.Entity.Product.ProductFruit", b =>
-                {
-                    b.HasOne("ShopDataAccess.Entity.Product.Product", null)
-                        .WithOne("FruitProduct")
-                        .HasForeignKey("Shop.DAL.Entity.Product.ProductFruit", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
                 {
                     b.HasOne("ShopDataAccess.Entity.Blog.Category", "ParentCategory")
@@ -747,9 +710,6 @@ namespace ShopDataAccess.Migrations
             modelBuilder.Entity("ShopDataAccess.Entity.Product.Product", b =>
                 {
                     b.Navigation("FashionProduct")
-                        .IsRequired();
-
-                    b.Navigation("FruitProduct")
                         .IsRequired();
 
                     b.Navigation("ProductImage")

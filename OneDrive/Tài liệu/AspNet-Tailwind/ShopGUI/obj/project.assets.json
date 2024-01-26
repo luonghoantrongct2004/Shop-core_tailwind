@@ -15263,7 +15263,8 @@
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.0",
       "MimeKit >= 4.3.0",
-      "Shop.BLL >= 1.0.0"
+      "Shop.BLL >= 1.0.0",
+      "Shop.DTO >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -15295,6 +15296,9 @@
           "projectReferences": {
             "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopBLL\\Shop.BLL.csproj": {
               "projectPath": "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopBLL\\Shop.BLL.csproj"
+            },
+            "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopDTO\\Shop.DTO.csproj": {
+              "projectPath": "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopDTO\\Shop.DTO.csproj"
             }
           }
         }

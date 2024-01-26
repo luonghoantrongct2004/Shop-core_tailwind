@@ -21,11 +21,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ShopDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ShopConnectionString"));
-});/*
-builder.Services.AddDbContext<ShopDbContext>(options => {
-    string connectstring = builder.Configuration.GetConnectionString("ShopConnectionString");
-    options.UseSqlServer(connectstring);
-});*/
+});
 /*
 builder.Services.AddDefaultIdentity<IdentityUser>(options
     => options.SignIn.RequireConfirmedAccount = true)
@@ -125,6 +121,10 @@ builder.Services.AddAuthorization(options =>
         builders.RequireAuthenticatedUser();
         builders.RequireRole(RoleName.Administrator);
     });
+    options.AddPolicy("CanCreate", policy => policy.RequireRole("Editor", "Adminstration"));
+    options.AddPolicy("CanView", policy => policy.RequireRole("Member", "Editor", "Adminstration"));
+    options.AddPolicy("CanEdit", policy => policy.RequireRole("Editor", "Adminstration"));
+    options.AddPolicy("CanDelete", policy => policy.RequireRole("Adminstation"));
 });
 var app = builder.Build();
 
@@ -132,7 +132,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

@@ -1,41 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Shop.DAL.Entity.Role;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Entity.Product;
 using ShopDataAccess.Models;
 
 namespace Shop.Web.Areas.Product.Controllers
 {
     [Area("Product")]
+    [Route("admin/product/[action]/{id?}")]
+    [Authorize(Roles = RoleName.Editor + "," + RoleName.Administrator)]
     public class ProductAdminController : Controller
     {
         private readonly ShopDbContext _context;
+        private readonly IEntityService<ProductDTO> _service;
 
-        public ProductAdminController(ShopDbContext context)
+        public ProductAdminController(ShopDbContext context, IEntityService<ProductDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
+        [TempData]
+        public string StatusMessage { get; set; }
         // GET: Product/ProductsAdmin
+        [Authorize(Policy = "CanView")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            return View(await _service.GetListsAsync());
         }
 
         // GET: Product/ProductsAdmin/Details/5
-        public async Task<IActionResult> Details(int? id)
+        [Authorize(Policy = "CanView")]
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+            var product = await _service.GetAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -43,7 +44,7 @@ namespace Shop.Web.Areas.Product.Controllers
 
             return View(product);
         }
-
+        [Authorize(Policy = "CanCreate")]
         // GET: Product/ProductsAdmin/Create
         public IActionResult Create()
         {
@@ -51,30 +52,25 @@ namespace Shop.Web.Areas.Product.Controllers
         }
 
         // POST: Product/ProductsAdmin/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Slug,Description,Price,Quantity,Image,Video,CategoryId,BrandId,MetaTitle,MetaDescription")] ShopDataAccess.Entity.Product.Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Slug,Description,Price,Quantity,Image,Video,CategoryId,BrandId,MetaTitle,MetaDescription")] ProductDTO product)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                await _service.AddAsync(product);
                 await _context.SaveChangesAsync();
+                StatusMessage = $"Đã tạo 1 sản phẩm {product.ProductName}";
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
         }
 
         // GET: Product/ProductsAdmin/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [Authorize(Policy = "CanEdit")]
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products.FindAsync(id);
+            var product = await _service.GetAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -87,7 +83,7 @@ namespace Shop.Web.Areas.Product.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Slug,Description,Price,Quantity,Image,Video,CategoryId,BrandId,MetaTitle,MetaDescription")] ShopDataAccess.Entity.Product.Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Slug,Description,Price,Quantity,Image,Video,CategoryId,BrandId,MetaTitle,MetaDescription")] ProductDTO product)
         {
             if (id != product.ProductId)
             {
@@ -98,14 +94,15 @@ namespace Shop.Web.Areas.Product.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    await _service.UpdateAsync(product);
                     await _context.SaveChangesAsync();
+                    StatusMessage = $"Đã sửa 1 sản phẩm {product.ProductName}";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ProductExists(product.ProductId))
                     {
-                        return NotFound();
+                        return View(nameof(Edit));
                     }
                     else
                     {
@@ -118,15 +115,10 @@ namespace Shop.Web.Areas.Product.Controllers
         }
 
         // GET: Product/ProductsAdmin/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [Authorize(Policy = "CanDelete")]
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+            var product = await _service.GetAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -140,13 +132,9 @@ namespace Shop.Web.Areas.Product.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
-            {
-                _context.Products.Remove(product);
-            }
-
+            await _service.DeleteAsync(id);
             await _context.SaveChangesAsync();
+            StatusMessage = $"Đã xóa 1 sản phẩm {id}";
             return RedirectToAction(nameof(Index));
         }
 

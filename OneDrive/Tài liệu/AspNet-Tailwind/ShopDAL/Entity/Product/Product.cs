@@ -23,6 +23,10 @@ namespace ShopDataAccess.Entity.Product
         [Display(Name = "Mô tả sản phẩm")]
         [Column(TypeName = "nvarchar")]
         public string Description { get; set; }
+        [Display(Name ="Kích thước")]
+        public string Size { get; set; }
+        [Display(Name = "Màu sắc")]
+        public string Color { get; set; }
 
         [Range(0, double.MaxValue, ErrorMessage = "{0} phải lớn hơn hoặc bằng 0.")]
         [Display(Name = "Giá sản phẩm")]
@@ -32,13 +36,15 @@ namespace ShopDataAccess.Entity.Product
         [Display(Name = "Số lượng sản phẩm")]
         public int Quantity { get; set; }
 
-        public string Image { get; set; }
-        public string Video { get; set; }
+        [Display(Name = "Số lượng đã bán")]
+        public int SoldQuantity { get; set; }
 
         [Required(ErrorMessage = "ID danh mục của sản phẩm là bắt buộc.")]
+        [ForeignKey("Category")]
         public int CategoryId { get; set; }
 
         [Required(ErrorMessage = "ID thương hiệu của sản phẩm là bắt buộc.")]
+        [ForeignKey("Brand")]
         public int BrandId { get; set; }
 
         [MaxLength(100, ErrorMessage = "{0} không được vượt quá 100 ký tự.")]
@@ -46,8 +52,6 @@ namespace ShopDataAccess.Entity.Product
         public string MetaTitle { get; set; }
         [Display(Name = "Mô tả tiêu đề")]
         public string MetaDescription { get; set; }
-        public ProductFashion FashionProduct { get; set; }
-        public ProductFruit FruitProduct { get; set; }
         public ProductImage ProductImage { get; set; }
         public ProductVideo ProductVideo { get; set; }
     }

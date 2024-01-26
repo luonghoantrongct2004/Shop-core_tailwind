@@ -302,6 +302,9 @@
             "projectReferences": {
               "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopBLL\\Shop.BLL.csproj": {
                 "projectPath": "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopBLL\\Shop.BLL.csproj"
+              },
+              "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopDTO\\Shop.DTO.csproj": {
+                "projectPath": "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopDTO\\Shop.DTO.csproj"
               }
             }
           }
