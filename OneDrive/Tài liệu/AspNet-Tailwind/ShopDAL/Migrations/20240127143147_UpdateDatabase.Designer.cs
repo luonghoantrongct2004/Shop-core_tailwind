@@ -9,11 +9,11 @@ using ShopDataAccess.Models;
 
 #nullable disable
 
-namespace ShopDataAccess.Migrations
+namespace Shop.DAL.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20240126083447_AddSoldQuantity")]
-    partial class AddSoldQuantity
+    [Migration("20240127143147_UpdateDatabase")]
+    partial class UpdateDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,33 +158,6 @@ namespace ShopDataAccess.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Shop.DAL.Entity.Product.ProductFashion", b =>
-                {
-                    b.Property<int>("FashionProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FashionProductId"));
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("FashionProductId");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
-
-                    b.ToTable("ProductFashion");
-                });
-
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -192,11 +165,6 @@ namespace ShopDataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -215,6 +183,11 @@ namespace ShopDataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -372,7 +345,12 @@ namespace ShopDataAccess.Migrations
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("TransactionId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Transactions");
                 });
@@ -417,6 +395,10 @@ namespace ShopDataAccess.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar");
@@ -439,6 +421,10 @@ namespace ShopDataAccess.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
@@ -661,19 +647,10 @@ namespace ShopDataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Shop.DAL.Entity.Product.ProductFashion", b =>
-                {
-                    b.HasOne("ShopDataAccess.Entity.Product.Product", null)
-                        .WithOne("FashionProduct")
-                        .HasForeignKey("Shop.DAL.Entity.Product.ProductFashion", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
                 {
                     b.HasOne("ShopDataAccess.Entity.Blog.Category", "ParentCategory")
-                        .WithMany()
+                        .WithMany("CategoryChildren")
                         .HasForeignKey("ParentCategoryId");
 
                     b.Navigation("ParentCategory");
@@ -684,6 +661,15 @@ namespace ShopDataAccess.Migrations
                     b.HasOne("ShopDataAccess.Models.ShopUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId1");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShopDataAccess.Entity.Pay.TransactionPay", b =>
+                {
+                    b.HasOne("ShopDataAccess.Models.ShopUser", "User")
+                        .WithMany("TransactionPay")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -710,16 +696,23 @@ namespace ShopDataAccess.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
+                {
+                    b.Navigation("CategoryChildren");
+                });
+
             modelBuilder.Entity("ShopDataAccess.Entity.Product.Product", b =>
                 {
-                    b.Navigation("FashionProduct")
-                        .IsRequired();
-
                     b.Navigation("ProductImage")
                         .IsRequired();
 
                     b.Navigation("ProductVideo")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ShopDataAccess.Models.ShopUser", b =>
+                {
+                    b.Navigation("TransactionPay");
                 });
 #pragma warning restore 612, 618
         }

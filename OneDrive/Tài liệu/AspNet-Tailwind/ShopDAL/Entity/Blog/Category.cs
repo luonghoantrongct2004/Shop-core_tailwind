@@ -8,14 +8,16 @@ namespace ShopDataAccess.Entity.Blog
         [Key]
         public int CategoryId { get; set; }
 
-        [Required(ErrorMessage = "Phải nhập {0}.")]
-        [StringLength(50)]
-        [Display(Name = "Danh mục")]
-        [Column(TypeName = "nvarchar")]
-        public string CategoryName { get; set; }
+        [Required(ErrorMessage = "Phải có tên danh mục")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "{0} dài {1} đến {2}")]
+        [Display(Name = "Tên danh mục")]
+        public string Title { get; set; }
+        public ICollection<Category> CategoryChildren { get; set; }
+        [Display(Name = "Danh mục cha")]
         public int? ParentCategoryId { get; set; }
+        [Display(Name = "Danh mục cha")]
         [ForeignKey("ParentCategoryId")]
-        public virtual Category ParentCategory { get; set; }
+        public Category ParentCategory { get; set; }
 
         [Required(ErrorMessage = "Phải tạo url")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "{0} dài {1} đến {2}")]

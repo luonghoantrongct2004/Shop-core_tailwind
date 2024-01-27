@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ShopDataAccess.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopDataAccess.Entity.Pay
 {
@@ -14,5 +15,7 @@ namespace ShopDataAccess.Entity.Pay
         public decimal AmountMoney { get; set; }
         [Display(Name = "Ngày giao dịch")]
         public DateTime TransactionDate { get; set; }
+        public string? UserId { get; set; }
+        public ShopUser User { get; set; }
     }
 }

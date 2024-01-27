@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Shared\StatusMessage.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Collection" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
@@ -60,5 +64,17 @@
 	<Target Name="Tailwind" BeforeTargets="Build">
 		<Exec Command="npm run css:build" />
 	</Target>
+
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Views\Shared\StatusMessage.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Views\Shared\StatusMessage.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Views\Shared\StatusMessage.cshtml" />
+	</ItemGroup>
 	
 </Project>

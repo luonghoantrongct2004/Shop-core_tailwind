@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Entity.Pay;
 using ShopDataAccess.Models;
 
@@ -14,28 +16,24 @@ namespace Shop.Web.Areas.Pay.Controllers
     public class TransactionPayAdminController : Controller
     {
         private readonly ShopDbContext _context;
+        private readonly IEntityService<TransactionPayDTO> _service;
 
-        public TransactionPayAdminController(ShopDbContext context)
+        public TransactionPayAdminController(ShopDbContext context, IEntityService<TransactionPayDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: Pay/TransactionPays
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Transactions.ToListAsync());
+            return View(await _service.GetListsAsync());
         }
 
         // GET: Pay/TransactionPays/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var transactionPay = await _context.Transactions
-                .FirstOrDefaultAsync(m => m.TransactionId == id);
+            var transactionPay = await _service.GetAsync(id);
             if (transactionPay == null)
             {
                 return NotFound();
@@ -55,11 +53,11 @@ namespace Shop.Web.Areas.Pay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionId,OrderId,PaymentMethod,AmountMoney,TransactionDate")] TransactionPay transactionPay)
+        public async Task<IActionResult> Create([Bind("TransactionId,OrderId,PaymentMethod,AmountMoney,TransactionDate")] TransactionPayDTO transactionPay)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(transactionPay);
+                await _service.AddAsync(transactionPay);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -67,14 +65,9 @@ namespace Shop.Web.Areas.Pay.Controllers
         }
 
         // GET: Pay/TransactionPays/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var transactionPay = await _context.Transactions.FindAsync(id);
+            var transactionPay = await _service.GetAsync(id);
             if (transactionPay == null)
             {
                 return NotFound();
@@ -87,7 +80,7 @@ namespace Shop.Web.Areas.Pay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TransactionId,OrderId,PaymentMethod,AmountMoney,TransactionDate")] TransactionPay transactionPay)
+        public async Task<IActionResult> Edit(int id, [Bind("TransactionId,OrderId,PaymentMethod,AmountMoney,TransactionDate")] TransactionPayDTO transactionPay)
         {
             if (id != transactionPay.TransactionId)
             {
@@ -98,7 +91,7 @@ namespace Shop.Web.Areas.Pay.Controllers
             {
                 try
                 {
-                    _context.Update(transactionPay);
+                    await _service.UpdateAsync(transactionPay);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -140,12 +133,7 @@ namespace Shop.Web.Areas.Pay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var transactionPay = await _context.Transactions.FindAsync(id);
-            if (transactionPay != null)
-            {
-                _context.Transactions.Remove(transactionPay);
-            }
-
+            await _service.DeleteAsync(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

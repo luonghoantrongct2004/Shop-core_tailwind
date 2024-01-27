@@ -2,40 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ShopDataAccess.Entity.Shipping;
+using Shop.DAL.Entity.Role;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Models;
 
 namespace Shop.Web.Areas.Shipping.Controllers
 {
     [Area("Shipping")]
+    [Route("admin/order/[action]/{id?}")]
+    [Authorize(Roles = RoleName.Editor + "," + RoleName.Administrator)]
     public class ShippingAdminController : Controller
     {
         private readonly ShopDbContext _context;
+        private readonly IEntityService<ShippingDTO> _service;
 
-        public ShippingAdminController(ShopDbContext context)
+        public ShippingAdminController(ShopDbContext context, IEntityService<ShippingDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: Shipping/ShippingAdmin
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Shippings.ToListAsync());
+            return View(await _service.GetListsAsync());
         }
 
         // GET: Shipping/ShippingAdmin/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shipping = await _context.Shippings
-                .FirstOrDefaultAsync(m => m.ShippingId == id);
+            var shipping = await _service.GetAsync(id);
             if (shipping == null)
             {
                 return NotFound();
@@ -51,15 +52,13 @@ namespace Shop.Web.Areas.Shipping.Controllers
         }
 
         // POST: Shipping/ShippingAdmin/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShippingId,OrderId,ShippingMethod,ShippingCost,ShippingAddress")] ShopDataAccess.Entity.Shipping.Shipping shipping)
+        public async Task<IActionResult> Create([Bind("ShippingId,OrderId,ShippingMethod,ShippingCost,ShippingAddress")] ShippingDTO shipping)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(shipping);
+                await _service.AddAsync(shipping);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -67,14 +66,9 @@ namespace Shop.Web.Areas.Shipping.Controllers
         }
 
         // GET: Shipping/ShippingAdmin/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shipping = await _context.Shippings.FindAsync(id);
+            var shipping = await _service.GetAsync(id);
             if (shipping == null)
             {
                 return NotFound();
@@ -83,11 +77,9 @@ namespace Shop.Web.Areas.Shipping.Controllers
         }
 
         // POST: Shipping/ShippingAdmin/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ShippingId,OrderId,ShippingMethod,ShippingCost,ShippingAddress")] ShopDataAccess.Entity.Shipping.Shipping shipping)
+        public async Task<IActionResult> Edit(int id, [Bind("ShippingId,OrderId,ShippingMethod,ShippingCost,ShippingAddress")] ShippingDTO shipping)
         {
             if (id != shipping.ShippingId)
             {
@@ -98,7 +90,7 @@ namespace Shop.Web.Areas.Shipping.Controllers
             {
                 try
                 {
-                    _context.Update(shipping);
+                    await _service.UpdateAsync(shipping);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -118,15 +110,10 @@ namespace Shop.Web.Areas.Shipping.Controllers
         }
 
         // GET: Shipping/ShippingAdmin/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var shipping = await _context.Shippings
-                .FirstOrDefaultAsync(m => m.ShippingId == id);
+            var shipping = await _service.GetAsync(id);
             if (shipping == null)
             {
                 return NotFound();
@@ -140,12 +127,7 @@ namespace Shop.Web.Areas.Shipping.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var shipping = await _context.Shippings.FindAsync(id);
-            if (shipping != null)
-            {
-                _context.Shippings.Remove(shipping);
-            }
-
+            await _service.DeleteAsync(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

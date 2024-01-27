@@ -3,7 +3,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Shop.DAL.Entity.Product;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Entity.Order;
 using ShopDataAccess.Entity.Pay;
@@ -45,7 +44,7 @@ public class ShopDbContext:IdentityDbContext<ShopUser>
         public ShopDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ShopDbContext>();
-            optionsBuilder.UseSqlServer("Server=localhost,1433;Initial Catalog=Shop3Tier;User Id=sa;Password=trong225;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=localhost,1433;Initial Catalog=Shopping;User Id=sa;Password=trong225;MultipleActiveResultSets=true;TrustServerCertificate=True;");
 
             return new ShopDbContext(optionsBuilder.Options);
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Shop.DTO.DTOs
 {
@@ -12,9 +6,11 @@ namespace Shop.DTO.DTOs
     {
         public int CategoryId { get; set; }
         [Display(Name = "Danh mục")]
-        public string CategoryName { get; set; }
+        public string Title { get; set; }
         public int? ParentCategoryId { get; set; }
-        public int? ParentCategory { get; set; }
+        public ICollection<CategoryDTO> CategoryChildren { get; set; }
+        [Display(Name = "Danh mục cha")]
+        public CategoryDTO ParentCategory { get; set; }
 
         [Display(Name = "Url hiện thị")]
         public string Slug { get; set; }

@@ -16,10 +16,8 @@ using Shop.BLL.Service.IServices;
 
 namespace Shop.Web.Areas.Admin.Controllers
 {
-    //[Authorize]
     [Area("Account")]
-    [Route("Account/[controller]/[action]")]
-
+    [Route("account/[controller]/[action]")]
     public class AdminAccountController : Controller
     {
         private readonly UserManager<ShopUser> _userManager;

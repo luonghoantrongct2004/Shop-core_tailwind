@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shop.DTO.DTOs
 {
     public class OrderDTO
     {
         public int OrderId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         [Display(Name = "Trạng thái đơn hàng")]
         public string Status { get; set; }
         [Display(Name = "Tổng tiền")]
@@ -24,6 +21,6 @@ namespace Shop.DTO.DTOs
         public DateTime CreatedDate { get; set; }
         [Display(Name = "Ngày cập nhật")]
         public DateTime UpdatedDate { get; set; }
-        int User { get; set; }
+        public int User { get; set; }
     }
 }

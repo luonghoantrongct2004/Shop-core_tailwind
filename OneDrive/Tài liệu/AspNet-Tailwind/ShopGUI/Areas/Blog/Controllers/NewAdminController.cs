@@ -2,40 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Shop.DAL.Entity.Role;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Models;
 
 namespace Shop.Web.Areas.Blog.Controllers
 {
     [Area("Blog")]
+    [Route("admin/blog/new/[action]/{id?}")]
+    [Authorize(Roles = RoleName.Editor + "," + RoleName.Administrator)]
     public class NewAdminController : Controller
     {
         private readonly ShopDbContext _context;
+        private readonly IEntityService<NewDTO> _service;
 
-        public NewAdminController(ShopDbContext context)
+        public NewAdminController(ShopDbContext context, IEntityService<NewDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: Blog/News
         public async Task<IActionResult> Index()
         {
-            return View(await _context.News.ToListAsync());
+            return View(await _service.GetListsAsync());
         }
 
         // GET: Blog/News/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var news = await _service.GetAsync(id);
             if (news == null)
             {
                 return NotFound();
@@ -55,11 +57,11 @@ namespace Shop.Web.Areas.Blog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TitleNew,Content,CreatedDate")] News news)
+        public async Task<IActionResult> Create([Bind("Id,TitleNew,Content,CreatedDate")] NewDTO news)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(news);
+                await _service.AddAsync(news);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -67,14 +69,9 @@ namespace Shop.Web.Areas.Blog.Controllers
         }
 
         // GET: Blog/News/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var news = await _context.News.FindAsync(id);
+            var news = await _service.GetAsync(id);
             if (news == null)
             {
                 return NotFound();
@@ -87,7 +84,7 @@ namespace Shop.Web.Areas.Blog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TitleNew,Content,CreatedDate")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TitleNew,Content,CreatedDate")] NewDTO news)
         {
             if (id != news.Id)
             {
@@ -98,7 +95,7 @@ namespace Shop.Web.Areas.Blog.Controllers
             {
                 try
                 {
-                    _context.Update(news);
+                    await _service.UpdateAsync(news);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -118,15 +115,9 @@ namespace Shop.Web.Areas.Blog.Controllers
         }
 
         // GET: Blog/News/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var news = await _service.GetAsync(id);
             if (news == null)
             {
                 return NotFound();
@@ -140,11 +131,7 @@ namespace Shop.Web.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var news = await _context.News.FindAsync(id);
-            if (news != null)
-            {
-                _context.News.Remove(news);
-            }
+                await _service.DeleteAsync(id);
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

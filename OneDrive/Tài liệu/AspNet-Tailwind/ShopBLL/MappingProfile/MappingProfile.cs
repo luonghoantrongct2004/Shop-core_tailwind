@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Shop.DAL.Entity.Product;
 using Shop.DTO.DTOs;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Entity.Brand;
@@ -21,7 +20,6 @@ namespace Shop.BLL.AutoMapper
             CreateMap<Order, OrderDTO>().ReverseMap();
             CreateMap<OrderItem, OrderItemDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
-            CreateMap<ProductFashion, ProductFashionDTO>().ReverseMap();
             CreateMap<ProductImage, ProductImageDTO>().ReverseMap();
             CreateMap<ProductVideo, ProductVideoDTO>().ReverseMap();
             CreateMap<Shipping, ShippingDTO>().ReverseMap();

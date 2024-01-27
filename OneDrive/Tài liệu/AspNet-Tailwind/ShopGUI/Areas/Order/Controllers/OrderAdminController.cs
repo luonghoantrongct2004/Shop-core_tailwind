@@ -1,41 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ShopDataAccess.Entity.Order;
+using Shop.DAL.Entity.Role;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Models;
 
 namespace Shop.Web.Areas.Order.Controllers
 {
     [Area("Order")]
+    [Route("admin/order/[action]/{id?}")]
+    [Authorize(Roles = RoleName.Editor + "," + RoleName.Administrator)]
     public class OrderAdminController : Controller
     {
         private readonly ShopDbContext _context;
+        private readonly IEntityService<OrderDTO> _service;
 
-        public OrderAdminController(ShopDbContext context)
+        public OrderAdminController(ShopDbContext context, IEntityService<OrderDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: Order/Orders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Orders.ToListAsync());
+            return View(await _service.GetListsAsync());
         }
 
         // GET: Order/Orders/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(m => m.OrderId == id);
+            var order = await _service.GetAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -51,15 +47,13 @@ namespace Shop.Web.Areas.Order.Controllers
         }
 
         // POST: Order/Orders/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,UserId,Status,TotalAmount,ShippingAddress,PaymentMethod,CreatedDate,UpdatedDate")] ShopDataAccess.Entity.Order.Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,UserId,Status,TotalAmount,ShippingAddress,PaymentMethod,CreatedDate,UpdatedDate")] OrderDTO order)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
+                await _service.AddAsync(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -67,14 +61,9 @@ namespace Shop.Web.Areas.Order.Controllers
         }
 
         // GET: Order/Orders/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _service.GetAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -87,7 +76,7 @@ namespace Shop.Web.Areas.Order.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,UserId,Status,TotalAmount,ShippingAddress,PaymentMethod,CreatedDate,UpdatedDate")] ShopDataAccess.Entity.Order.Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,UserId,Status,TotalAmount,ShippingAddress,PaymentMethod,CreatedDate,UpdatedDate")] OrderDTO order)
         {
             if (id != order.OrderId)
             {
@@ -98,7 +87,7 @@ namespace Shop.Web.Areas.Order.Controllers
             {
                 try
                 {
-                    _context.Update(order);
+                    await _service.UpdateAsync(order);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -118,15 +107,9 @@ namespace Shop.Web.Areas.Order.Controllers
         }
 
         // GET: Order/Orders/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(m => m.OrderId == id);
+            var order = await _service.GetAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -140,12 +123,7 @@ namespace Shop.Web.Areas.Order.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
-            if (order != null)
-            {
-                _context.Orders.Remove(order);
-            }
-
+            await _service.DeleteAsync(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

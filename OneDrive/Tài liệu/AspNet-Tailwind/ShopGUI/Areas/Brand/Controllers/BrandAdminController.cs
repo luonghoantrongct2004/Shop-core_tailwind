@@ -1,45 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Shop.DAL.Entity.Role;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Entity.Brand;
 using ShopDataAccess.Models;
 
 namespace Shop.Web.Areas.Brand.Controllers
 {
     [Area("Brand")]
-    [Route("Brand/[controller]/[action]")]
-    /*[Authorize(Roles = RoleName.Administrator)]*/
+    [Route("admin/brand/[action]/{id?}")]
+    [Authorize(Roles = RoleName.Editor + "," + RoleName.Administrator)]
     public class BrandAdminController : Controller
     {
         private readonly ShopDbContext _context;
+        private readonly IEntityService<BrandDTO> _service;
 
-        public BrandAdminController(ShopDbContext context)
+        public BrandAdminController(ShopDbContext context, IEntityService<BrandDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: Brand/Brands    
-        [HttpGet("admin/brand")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Brands.ToListAsync());
+            return View(await _service.GetListsAsync());
         }
 
         // GET: Brand/Brands/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var brand = await _context.Brands
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var brand = await _service.GetAsync(id);
             if (brand == null)
             {
                 return NotFound();
@@ -54,16 +48,13 @@ namespace Shop.Web.Areas.Brand.Controllers
             return View();
         }
 
-        // POST: Brand/Brands/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BrandName,Slug,BrandDescription,MetaTitle,MetaDescription")] ShopDataAccess.Entity.Brand.Brand brand)
+        public async Task<IActionResult> Create([Bind("Id,BrandName,Slug,BrandDescription,MetaTitle,MetaDescription")] BrandDTO brand)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(brand);
+                await _service.AddAsync(brand);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -71,14 +62,9 @@ namespace Shop.Web.Areas.Brand.Controllers
         }
 
         // GET: Brand/Brands/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var brand = await _context.Brands.FindAsync(id);
+            var brand = await _service.GetAsync(id);
             if (brand == null)
             {
                 return NotFound();
@@ -91,7 +77,7 @@ namespace Shop.Web.Areas.Brand.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,BrandName,Slug,BrandDescription,MetaTitle,MetaDescription")] ShopDataAccess.Entity.Brand.Brand brand)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,BrandName,Slug,BrandDescription,MetaTitle,MetaDescription")] BrandDTO brand)
         {
             if (id != brand.Id)
             {
@@ -102,7 +88,7 @@ namespace Shop.Web.Areas.Brand.Controllers
             {
                 try
                 {
-                    _context.Update(brand);
+                    await _service.UpdateAsync(brand);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -122,15 +108,9 @@ namespace Shop.Web.Areas.Brand.Controllers
         }
 
         // GET: Brand/Brands/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var brand = await _context.Brands
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var brand = await _service.GetAsync(id);
             if (brand == null)
             {
                 return NotFound();
@@ -140,15 +120,10 @@ namespace Shop.Web.Areas.Brand.Controllers
         }
 
         // POST: Brand/Brands/Delete/5
-        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var brand = await _context.Brands.FindAsync(id);
-            if (brand != null)
-            {
-                _context.Brands.Remove(brand);
-            }
+            await _service.DeleteAsync(id);
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

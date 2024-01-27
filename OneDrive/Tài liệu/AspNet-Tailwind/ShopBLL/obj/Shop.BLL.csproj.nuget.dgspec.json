@@ -226,7 +226,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopDAL\\Shop.DAL.csproj": {
+                "projectPath": "C:\\Users\\PREDATOR\\OneDrive\\Tài liệu\\AspNet-Tailwind\\ShopDAL\\Shop.DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

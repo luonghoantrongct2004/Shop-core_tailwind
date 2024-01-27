@@ -11,7 +11,7 @@ namespace Shop.DTO.DTOs
     public class CommentDTO
     {
         public int ComnmentId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int ProductId { get; set; }
         [Display(Name = "Nội dung")]
         public string Content { get; set; }

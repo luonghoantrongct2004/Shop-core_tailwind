@@ -1,30 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Shop.DAL.Entity.Role;
+using Shop.DTO.DTOs;
+using ShopBussinessLogic.Service.IServices;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Models;
 
 namespace Shop.Web.Areas.Blog.Controllers
 {
     [Area("Blog")]
+    [Route("admin/blog/category/[action]/{id?}")]
+    [Authorize(Roles = RoleName.Editor + "," + RoleName.Administrator)]
     public class CategoryAdminController : Controller
     {
         private readonly ShopDbContext _context;
-
-        public CategoryAdminController(ShopDbContext context)
+        private readonly IEntityService<CategoryDTO> _service;
+        public CategoryAdminController(ShopDbContext context, IEntityService<CategoryDTO> service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: Blog/Categories
         public async Task<IActionResult> Index()
         {
-            var shopDbContext = _context.Categories.Include(c => c.ParentCategory);
-            return View(await shopDbContext.ToListAsync());
+            var queryCategory = (from c in _context.Categories select c)
+                .Include(c => c.ParentCategory)
+                .Include(c => c.CategoryChildren);
+            var categories = (await queryCategory.ToListAsync())
+                .Where(c => c.ParentCategory != null)
+                .ToList();
+            return View(categories);
         }
 
         // GET: Blog/Categories/Details/5
@@ -47,10 +55,54 @@ namespace Shop.Web.Areas.Blog.Controllers
         }
 
         // GET: Blog/Categories/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["ParentCategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+            ViewData["ParentCategoryId"] = new SelectList(_context.Categories, "CategoryId", "Slug");
+            var listCategory = await _context.Categories.ToListAsync();
+            listCategory.Insert(0, new Category(){
+                Title = "Không có danh mục cha",
+                CategoryId = -1
+               });
+            ViewData["ParentId"] = new SelectList(await GetItemsSelectCategorie(), "CategoryId", "Title", -1);
             return View();
+        }
+
+        async Task<IEnumerable<Category>> GetItemsSelectCategorie()
+        {
+
+            var items = await _context.Categories
+                                .Include(c => c.CategoryChildren)
+                                .Where(c => c.ParentCategory == null)
+                                .ToListAsync();
+
+
+
+            List<Category> resultitems = new List<Category>() {
+                new Category() {
+                    CategoryId = -1,
+                    Title = "Không có danh mục cha"
+                }
+            };
+            Action<List<Category>, int> _ChangeTitleCategory = null;
+            Action<List<Category>, int> ChangeTitleCategory = (items, level) => {
+                string prefix = String.Concat(Enumerable.Repeat("—", level));
+                foreach (var item in items)
+                {
+                    item.Title = prefix + " " + item.Title;
+                    resultitems.Add(item);
+                    if ((item.CategoryChildren != null) && (item.CategoryChildren.Count > 0))
+                    {
+                        _ChangeTitleCategory(item.CategoryChildren.ToList(), level + 1);
+                    }
+
+                }
+
+            };
+
+            _ChangeTitleCategory = ChangeTitleCategory;
+            ChangeTitleCategory(items, 0);
+
+            return resultitems;
         }
 
         // POST: Blog/Categories/Create
@@ -92,7 +144,7 @@ namespace Shop.Web.Areas.Blog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,ParentCategoryId,Slug,Description,MetaTitle,MetaDescription")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,ParentCategoryId,Slug,Description,MetaTitle,MetaDescription")] Catego category)
         {
             if (id != category.CategoryId)
             {
@@ -103,7 +155,7 @@ namespace Shop.Web.Areas.Blog.Controllers
             {
                 try
                 {
-                    _context.Update(category);
+                    _service.UpdateAsync(category);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

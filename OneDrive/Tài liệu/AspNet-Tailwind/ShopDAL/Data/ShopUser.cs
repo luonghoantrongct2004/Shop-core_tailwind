@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ShopDataAccess.Entity.Pay;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopDataAccess.Models
@@ -13,5 +14,6 @@ namespace ShopDataAccess.Models
 
         [DataType(DataType.Date)]
         public DateTime? Birthday { set; get; }
+        public ICollection<TransactionPay> TransactionPay { get; set; }
     }
 }

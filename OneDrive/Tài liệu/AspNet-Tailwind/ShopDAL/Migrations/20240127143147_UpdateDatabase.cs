@@ -2,29 +2,29 @@
 
 #nullable disable
 
-namespace ShopDataAccess.Migrations
+namespace Shop.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class initIdentity : Migration
+    public partial class UpdateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "UserId1",
-                table: "Orders",
+                name: "UserId",
+                table: "Transactions",
                 type: "nvarchar(450)",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_UserId1",
-                table: "Orders",
-                column: "UserId1");
+                name: "IX_Transactions_UserId",
+                table: "Transactions",
+                column: "UserId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Orders_Users_UserId1",
-                table: "Orders",
-                column: "UserId1",
+                name: "FK_Transactions_Users_UserId",
+                table: "Transactions",
+                column: "UserId",
                 principalTable: "Users",
                 principalColumn: "Id");
         }
@@ -33,16 +33,16 @@ namespace ShopDataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Orders_Users_UserId1",
-                table: "Orders");
+                name: "FK_Transactions_Users_UserId",
+                table: "Transactions");
 
             migrationBuilder.DropIndex(
-                name: "IX_Orders_UserId1",
-                table: "Orders");
+                name: "IX_Transactions_UserId",
+                table: "Transactions");
 
             migrationBuilder.DropColumn(
-                name: "UserId1",
-                table: "Orders");
+                name: "UserId",
+                table: "Transactions");
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ShopDataAccess.Migrations
+namespace Shop.DAL.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration
@@ -34,7 +34,7 @@ namespace ShopDataAccess.Migrations
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     ParentCategoryId = table.Column<int>(type: "int", nullable: true),
                     Slug = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar", nullable: false),
@@ -99,25 +99,6 @@ namespace ShopDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    OrderId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ShippingAddress = table.Column<string>(type: "nvarchar", nullable: false),
-                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.OrderId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -126,10 +107,11 @@ namespace ShopDataAccess.Migrations
                     ProductName = table.Column<string>(type: "nvarchar", nullable: false),
                     Slug = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar", nullable: false),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Video = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SoldQuantity = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     BrandId = table.Column<int>(type: "int", nullable: false),
                     MetaTitle = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -215,7 +197,7 @@ namespace ShopDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductImages",
+                name: "ProductImage",
                 columns: table => new
                 {
                     ImageId = table.Column<int>(type: "int", nullable: false)
@@ -225,9 +207,9 @@ namespace ShopDataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductImages", x => x.ImageId);
+                    table.PrimaryKey("PK_ProductImage", x => x.ImageId);
                     table.ForeignKey(
-                        name: "FK_ProductImages_Products_ProductId",
+                        name: "FK_ProductImage_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
@@ -235,7 +217,7 @@ namespace ShopDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductVideos",
+                name: "ProductVideo",
                 columns: table => new
                 {
                     VideoId = table.Column<int>(type: "int", nullable: false)
@@ -247,9 +229,9 @@ namespace ShopDataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductVideos", x => x.VideoId);
+                    table.PrimaryKey("PK_ProductVideo", x => x.VideoId);
                     table.ForeignKey(
-                        name: "FK_ProductVideos_Products_ProductId",
+                        name: "FK_ProductVideo_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
@@ -275,6 +257,31 @@ namespace ShopDataAccess.Migrations
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ShippingAddress = table.Column<string>(type: "nvarchar", nullable: false),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.OrderId);
+                    table.ForeignKey(
+                        name: "FK_Orders_Users_UserId1",
+                        column: x => x.UserId1,
+                        principalTable: "Users",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -368,14 +375,19 @@ namespace ShopDataAccess.Migrations
                 column: "ParentCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductImages_ProductId",
-                table: "ProductImages",
+                name: "IX_Orders_UserId1",
+                table: "Orders",
+                column: "UserId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductImage_ProductId",
+                table: "ProductImage",
                 column: "ProductId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductVideos_ProductId",
-                table: "ProductVideos",
+                name: "IX_ProductVideo_ProductId",
+                table: "ProductVideo",
                 column: "ProductId",
                 unique: true);
 
@@ -441,10 +453,10 @@ namespace ShopDataAccess.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "ProductImages");
+                name: "ProductImage");
 
             migrationBuilder.DropTable(
-                name: "ProductVideos");
+                name: "ProductVideo");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims");
