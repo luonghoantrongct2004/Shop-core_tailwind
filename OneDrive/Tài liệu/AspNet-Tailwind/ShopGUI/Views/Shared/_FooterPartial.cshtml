@@ -1,4 +1,63 @@
-﻿<div class="bg-[#cba8d0] container-fluid">
+﻿<footer class="sticky bottom-0 w-full bg-blue-300 md:hidden max-h-[50px] text-white ">
+    <div class="flex justify-between text-[11px]">
+        <div class="">
+            <button class="w-[115px] h-[55px] border-2" onclick="moForm()">
+                <i class="text-pink-600 fas fa-comments"></i><br> Chat ngay
+            </button>
+        </div>
+        <div class="border-r-2">
+            <button class="w-[100px] h-[55px]">
+                <i class="text-pink-600 fas fa-shopping-cart"></i> <br>
+                Them vao gio hang
+            </button>
+        </div>
+        <div class="">
+            <button class="bg-pink-500  w-[145px] h-[50px]">
+                <h6 class="text-center mr-[30px] ">Mua hang</h6>
+            </button>
+        </div>
+
+    </div>
+
+</footer>
+
+
+<div class="mr-[-12px] transition-all delay-3000 ease-in-out fixed bottom-0 hidden right-[15px] border-[3px_solid_#f1f1f1] z-[9] max-h-[640px] h-600px"
+     id="formChat">
+    <div class="row max-sm:w-[350px] lg:w-[400px] lg:h-[400px] max-sm:mb-[47px] max-sm:pl-[40px] max-sm:"
+         style="--bs-gutter-x:0px;">
+        <form action="" class="max-w-[400px]">
+            <div class="flex row bg-[#eea6ff] p-[5px]" style="--bs-gutter-x:0px; margin-right: 0px; ">
+                <div class="col-4">
+                    <h5 class="max-sm:p-1">Chat</h5>
+                </div>
+                <div class="text-end col-8 " onclick="dongForm()">
+                    <button type="button" class="pr-2 text-[25px]">&times;</button>
+                </div>
+            </div>
+            <div class="bg-white h-[270px]">
+                <form action="">
+                </form>
+            </div>
+            <div class="h-full bg-white">
+                <input type="text" class="w-full p-[5px] text-start resize-none outline-none h-[55px]"
+                       placeholder="Bạn hãy nhập lời nhắn.." name="msg" maxlength="100" />
+                <div class="bg-white">
+                    <div>
+                        <span></span>
+                        <button type="submit"
+                                class="  p-[16px 20px] border-none cursor-pointer mb-[10px] opacity-[0.8] float-end">
+                            <img src="image/buttonsend.png" class="w-[30px]" alt="">
+                    </div>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="bg-[#cba8d0] container-fluid max-sm:hidden">
     <div class="row">
         <div class="col-lg-3">
             LHT
@@ -11,6 +70,45 @@
         </div>
         <div class="col-lg-3">
             Can tho
+        </div>
+    </div>
+</div>
+<!-- chat -->
+<div class="max-sm:hidden">
+    <button class="opacity delay-[0.3s] ease-in-out bg-[#e8bcff] p-[16px 20px] border-none cursor-pointer fixed bottom-[23px] right-[18px] w-100px hover:opacity-[1] flex p-[7px] "
+            onclick="moForm()">
+        <img src="image/chat.png" width="26px" class="pr-1" /> Chat
+    </button>
+    <div class="transition-all delay-3000 ease-in-out fixed bottom-0 hidden right-[15px] border-[3px_solid_#f1f1f1] z-[9] max-h-[640px] h-600px"
+         id="formChat">
+        <div class="row w-[400px] h-[400px] mb-5px" style="--bs-gutter-x:0px; margin-right: 0px; ">
+            <form action="" class="max-w-[400px]">
+                <div class="flex row bg-[#eea6ff] p-[5px]" style="--bs-gutter-x:0px; margin-right: 0px; ">
+                    <div class="col-4">
+                        <h5>Chat</h5>
+                    </div>
+                    <div class="text-end col-8">
+                        <button type="button" class="pr-2" onclick="dongForm()">&times;</button>
+                    </div>
+                </div>
+                <div class="bg-white h-[270px]">
+                    <form action="">
+                    </form>
+                </div>
+                <div class="h-full bg-white">
+                    <input type="text" class="w-full p-[5px] text-start resize-none outline-none h-[55px]"
+                           placeholder="Bạn hãy nhập lời nhắn.." name="msg" maxlength="100" />
+                    <div class="bg-white">
+                        <div>
+                            <span></span>
+                            <button type="submit"
+                                    class="  p-[16px 20px] border-none cursor-pointer mb-[10px] opacity-[0.8] float-end">
+                                <img src="image/buttonsend.png" class="w-[30px]" alt="">
+                        </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

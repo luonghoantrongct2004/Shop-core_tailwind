@@ -9,7 +9,7 @@ namespace ShopDataAccess.Entity.Order
         [Key]
         public int OrderId { get; set; }
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         [Display(Name = "Trạng thái đơn hàng")]
         public string Status { get; set; }
         [Display(Name = "Tổng tiền")]
@@ -26,5 +26,6 @@ namespace ShopDataAccess.Entity.Order
         [Display(Name = "Ngày cập nhật")]
         public DateTime UpdatedDate { get; set; }
         public virtual ShopUser User { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model List<ShopDataAccess.Entity.Product.Product>
+﻿@model List<Shop.DTO.DTOs.ProductDTO>
 <div class="bgrow mpcustom ">
     @if (Model != null && Model.Any())
     {
@@ -14,7 +14,8 @@
                 <div class="md:max-w-[1380px] max-sm:max-w-[360px] flex-wrap flex">
                     <div class="hover:translate-y-[-1px] pb-2 md:mb-[15px] max-sm:w-[179px] md:mr-[7.71px]">
                         <div class="bg-white hover:border-red-500 transition ease-in-out delay-50 duration-50 border-1 md:w-[188px] max-sm:max-w-[180px]">
-                            <a href="#" class="text-black text-decoration-none">
+                            <input type="hidden" value="@item.ProductId" />
+                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductId" class="text-black text-decoration-none">
                                 <img src="image/product.png" alt="" srcset=""
                                 class="max-sm:max-w-[176px] md:max-w-[186px] md:max-h-[160px] md:w-[186px]">
                                 <div class="pt-2 pl-2">

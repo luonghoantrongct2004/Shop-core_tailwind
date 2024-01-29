@@ -36,7 +36,8 @@ namespace Shop.DTO.DTOs
         public string MetaTitle { get; set; }
         [Display(Name = "Mô tả tiêu đề")]
         public string MetaDescription { get; set; }
-        public int? ProductImageId { get; set; }
-        public int? ProductVideoId { get; set; }
+        public ICollection<ProductImageDTO> ProductImageId { get; set; }
+        public ProductVideoDTO ProductVideoId { get; set; }
+        public CartItemDTO CartItems { get; set; }
     }
 }

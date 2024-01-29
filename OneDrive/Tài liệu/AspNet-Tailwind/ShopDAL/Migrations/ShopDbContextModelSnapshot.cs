@@ -155,6 +155,56 @@ namespace Shop.DAL.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Shop.DAL.Entity.Cart.Cart", b =>
+                {
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CartId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("Shop.DAL.Entity.Cart.CartItem", b =>
+                {
+                    b.Property<int>("CartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartItemId"));
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("CartItemId");
+
+                    b.HasIndex("CartId");
+
+                    b.ToTable("CartItems");
+                });
+
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -283,15 +333,14 @@ namespace Shop.DAL.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Orders");
                 });
@@ -317,6 +366,8 @@ namespace Shop.DAL.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderItemId");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
                 });
@@ -389,6 +440,9 @@ namespace Shop.DAL.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CartItemId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -433,6 +487,8 @@ namespace Shop.DAL.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("CartItemId");
+
                     b.ToTable("Products");
                 });
 
@@ -453,8 +509,7 @@ namespace Shop.DAL.Migrations
 
                     b.HasKey("ImageId");
 
-                    b.HasIndex("ProductId")
-                        .IsUnique();
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductImage");
                 });
@@ -530,6 +585,9 @@ namespace Shop.DAL.Migrations
 
                     b.Property<DateTime?>("Birthday")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -644,6 +702,28 @@ namespace Shop.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Shop.DAL.Entity.Cart.Cart", b =>
+                {
+                    b.HasOne("ShopDataAccess.Models.ShopUser", "User")
+                        .WithOne("Carts")
+                        .HasForeignKey("Shop.DAL.Entity.Cart.Cart", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Shop.DAL.Entity.Cart.CartItem", b =>
+                {
+                    b.HasOne("Shop.DAL.Entity.Cart.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+                });
+
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
                 {
                     b.HasOne("ShopDataAccess.Entity.Blog.Category", "ParentCategory")
@@ -656,26 +736,50 @@ namespace Shop.DAL.Migrations
             modelBuilder.Entity("ShopDataAccess.Entity.Order.Order", b =>
                 {
                     b.HasOne("ShopDataAccess.Models.ShopUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1");
+                        .WithOne("Orders")
+                        .HasForeignKey("ShopDataAccess.Entity.Order.Order", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShopDataAccess.Entity.Order.OrderItem", b =>
+                {
+                    b.HasOne("ShopDataAccess.Entity.Order.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("ShopDataAccess.Entity.Pay.TransactionPay", b =>
                 {
                     b.HasOne("ShopDataAccess.Models.ShopUser", "User")
-                        .WithMany("TransactionPay")
+                        .WithMany("TransactionPays")
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ShopDataAccess.Entity.Product.Product", b =>
+                {
+                    b.HasOne("Shop.DAL.Entity.Cart.CartItem", "CartItem")
+                        .WithMany("Products")
+                        .HasForeignKey("CartItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CartItem");
+                });
+
             modelBuilder.Entity("ShopDataAccess.Entity.Product.ProductImage", b =>
                 {
                     b.HasOne("ShopDataAccess.Entity.Product.Product", "Product")
-                        .WithOne("ProductImage")
-                        .HasForeignKey("ShopDataAccess.Entity.Product.ProductImage", "ProductId")
+                        .WithMany("ProductImage")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -693,15 +797,29 @@ namespace Shop.DAL.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Shop.DAL.Entity.Cart.Cart", b =>
+                {
+                    b.Navigation("CartItems");
+                });
+
+            modelBuilder.Entity("Shop.DAL.Entity.Cart.CartItem", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("ShopDataAccess.Entity.Blog.Category", b =>
                 {
                     b.Navigation("CategoryChildren");
                 });
 
+            modelBuilder.Entity("ShopDataAccess.Entity.Order.Order", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
             modelBuilder.Entity("ShopDataAccess.Entity.Product.Product", b =>
                 {
-                    b.Navigation("ProductImage")
-                        .IsRequired();
+                    b.Navigation("ProductImage");
 
                     b.Navigation("ProductVideo")
                         .IsRequired();
@@ -709,7 +827,13 @@ namespace Shop.DAL.Migrations
 
             modelBuilder.Entity("ShopDataAccess.Models.ShopUser", b =>
                 {
-                    b.Navigation("TransactionPay");
+                    b.Navigation("Carts")
+                        .IsRequired();
+
+                    b.Navigation("Orders")
+                        .IsRequired();
+
+                    b.Navigation("TransactionPays");
                 });
 #pragma warning restore 612, 618
         }

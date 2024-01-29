@@ -14,12 +14,15 @@ C:\Users\PREDATOR\OneDrive\Tài liệu\AspCore_Shopping\Shop\ShopDTO\obj\Debug
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\bin\Debug\net8.0\Shop.DTO.deps.json
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\bin\Debug\net8.0\Shop.DTO.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\bin\Debug\net8.0\Shop.DTO.pdb
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\bin\Debug\net8.0\Shop.DAL.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\bin\Debug\net8.0\Shop.DAL.pdb
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.csproj.AssemblyReference.cache
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.AssemblyInfoInputs.cache
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.AssemblyInfo.cs
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.csproj.CoreCompileInputs.cache
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.sourcelink.json
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.csproj.CopyComplete
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\refint\Shop.DTO.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopDTO\obj\Debug\net8.0\Shop.DTO.pdb

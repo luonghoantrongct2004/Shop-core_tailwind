@@ -3,10 +3,12 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Shop.DAL.Entity.Cart;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Entity.Order;
 using ShopDataAccess.Entity.Pay;
 using ShopDataAccess.Entity.Product;
+using System.Reflection.Emit;
 
 public class ShopDbContext:IdentityDbContext<ShopUser> 
 {
@@ -27,12 +29,10 @@ public class ShopDbContext:IdentityDbContext<ShopUser>
                 entityType.SetTableName(tableName.Substring(6));
             }
         }
-        builder.Entity<ProductImage>()
-            .HasOne(p => p.Product)
-            .WithOne(p => p.ProductImage)
-            .HasForeignKey<ProductImage>(p => p.ProductId)  // Xác định ProductImage là phía phụ thuộc
-            .OnDelete(DeleteBehavior.Cascade);
-
+        builder.Entity<Cart>()
+       .HasOne(c => c.User)
+       .WithOne(u => u.Carts)
+       .HasForeignKey<Cart>(c => c.UserId);
         builder.Entity<ProductVideo>()
             .HasOne(p => p.Product)
             .WithOne(p => p.ProductVideo)
@@ -60,4 +60,6 @@ public class ShopDbContext:IdentityDbContext<ShopUser>
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ProductVideo> ProductVideos { get; set; }
         public DbSet<ShopDataAccess.Entity.Shipping.Shipping> Shippings { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 }

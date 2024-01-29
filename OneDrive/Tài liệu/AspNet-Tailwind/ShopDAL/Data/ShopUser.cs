@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Shop.DAL.Entity.Cart;
+using ShopDataAccess.Entity.Order;
 using ShopDataAccess.Entity.Pay;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopDataAccess.Models
 {
@@ -14,6 +17,9 @@ namespace ShopDataAccess.Models
 
         [DataType(DataType.Date)]
         public DateTime? Birthday { set; get; }
-        public ICollection<TransactionPay> TransactionPay { get; set; }
+        public ICollection<TransactionPay> TransactionPays { get; set; }
+        [ForeignKey("CartId")]
+        public virtual Cart Carts { get; set; }
+        public virtual Order Orders { get; set; }
     }
 }

@@ -7,6 +7,88 @@
         margin-left: 80px;
         padding-left: 0px;
     }
+
+    .slick-prev:hover,
+    .slick-next:hover {
+        width: 25px;
+        height: 50px;
+        background-color: #e2e2e3;
+        ;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 25px;
+        height: 50px;
+        background-color: #e2e2e2;
+    }
+
+        .slick-prev:before,
+        .slick-next:before {
+            font-size: 25px;
+            color: #9b59b6;
+        }
+}
+
+.colorful-text {
+    background: linear-gradient(90deg, #3498db, #2ecc71, #9b59b6);
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.color-changing-border {
+    border: 2px solid transparent;
+    transition: border 0.3s ease-in-out;
+}
+
+    .color-changing-border :hover {
+        top: -1px;
+        /* Điều chỉnh để shadow không bị che đi */
+        left: -1px;
+        /* Điều chỉnh để shadow không bị che đi */
+        right: -1px;
+        /* Điều chỉnh để shadow không bị che đi */
+        bottom: -1px;
+        /* Điều chỉnh để shadow không bị che đi */
+        border: 2px solid transparent;
+        animation: changeBorderColor 3s infinite;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        /* Thêm shadow và điều chỉnh giá trị màu và độ mờ theo ý muốn */
+    }
+
+@keyframes changeBorderColor {
+    0% {
+        border-color: rgb(2, 217, 255);
+    }
+
+    14% {
+        border-color: rgb(49, 135, 255);
+    }
+
+    28% {
+        border-color: rgb(5, 13, 253);
+    }
+
+    42% {
+        border-color: rgb(229, 190, 255);
+    }
+
+    56% {
+        border-color: rgb(234, 48, 255);
+    }
+
+    70% {
+        border-color: rgb(148, 0, 254);
+    }
+
+    84% {
+        border-color: rgb(96, 255, 146);
+    }
+
+    100% {
+        border-color: rgb(0, 237, 123);
+    }
 }
 
 .colorful-text {

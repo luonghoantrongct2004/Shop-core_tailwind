@@ -1,0 +1,332 @@
+﻿@model Shop.DTO.DTOs.ProductDTO
+
+<div class="pt-3 bgrow mpcustom">
+    @if(Model != null)
+    {
+        <div>
+            <div class="row bgrow max-[360px]:hidden">
+                <div class="h-[35px] col-lg-12  mt-1 max-sm:hidden " id="navContainer">
+                    <nav class="ml-[80px] nav-link">
+                        <a href="index.html" class="text-decoration-none colorful-text">Trang chu ></a>
+                        <a href="" id="myLink" class="text-decoration-none colorful-text"></a>
+                    </nav>
+                </div>
+            </div>
+            <div class="bg-white bgrow mpcustom row lg:max-w-[1600px] max-sm:min-w-[360px] max-sm:ml-0">
+                <div class="col-lg-5 w-[412px] ml-[0px]">
+                    <div class="max-w-[500px] max-h-[500px] lg:ml-[32px] max-sm:mr-3" id="carousel-container">
+                        <div class="ml-[11px]"><img src="image/product.png" alt="Product 1"></div>
+                        <div><img src="image/product1.png" alt="Product 2"></div>
+                        <div><img src="image/product2.png" alt="Product 3"></div>
+                        <div><img src="image/product3.png" alt="Product 4"></div>
+                        <div><img src="image/product.png" alt="Product 5"></div>
+                        <div><img src="image/product2.png" alt="Product 6"></div>
+                    </div>
+
+                    <!-- Ảnh dưới -->
+                    <div id="image-frames"
+                         class="flex justify-between pt-2 space-x-1 max-sm:w-[350px] lg:ml-[27px]  lg:w-[505px] mb-2">
+                        <!-- Các phần tử ảnh -->
+                        <div class="image-frame object-cover hover:border-purple-600 border-2 max-h-[120px] max-sm:max-w-[104px]">
+                            <img src="image/product.png" class="w-[100px] lg:h-full max-sm:max-h-[100px]" alt="Image1">
+                        </div>
+                        <div class="image-frame object-cover border-2 hover:border-purple-600 max-h-[120px] max-sm:max-w-[104px]">
+                            <img src="image/product1.png" class="w-[100px] h-full" alt="Image2">
+                        </div>
+                        <div class="image-frame object-cover border-2 hover:border-purple-600 max-h-[120px] max-sm:max-w-[104px]">
+                            <img src="image/product2.png" class="w-[100px] h-full" alt="Image3">
+                        </div>
+                        <div class="image-frame object-cover border-2 hover:border-purple-600 max-h-[120px] max-sm:max-w-[104px]">
+                            <img src="image/product3.png" class="w-[100px] h-full" alt="Image4">
+                        </div>
+                        <div class="image-frame object-cover border-2 hover:border-purple-600 max-h-[120px] max-sm:max-w-[104px]">
+                            <img src="image/product.png" class="w-[100px] h-full" alt="Image5">
+                        </div>
+                        <div class="image-frame object-cover border-2 hover:border-purple-600 max-h-[120px] max-sm:max-w-[104px]">
+                            <img src="image/product2.png" class="w-[100px] h-full" alt="Image6">
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-0 bg-white col-lg-7">
+                    <div>
+                        <h5>
+                            Jhzc Quần jean ống suông Phối Nhiều Túi Phong Cách retro Mỹ Thời Trang Xuân Thu Cao Cấp Cho Nam
+                        </h5>
+                        <div class="flex">
+                            <div class="p-1">
+                                <small class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </small> |
+                            </div>
+                            <div class="p-1">
+                                <span>
+                                    25 danh gia |
+                                </span>
+                            </div>
+                            <div class="p-1">
+                                <span>
+                                    308 da ban
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="p-2 ml-3 col-11 bg-slate-100">
+                            <h2>245 000</h2>
+                        </div>
+                    </div>
+                    <div class="max-sm:hidden">
+                        <div class="flex pt-4 pb-3">
+                            <span class="pt-2 pr-10 text-pink-400">Mau sac</span>
+                            <div class="flex pl-1 w-85 h-41 ">
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex pt-7">
+                            <span class="pt-2 pr-6 text-pink-400">Kich thuoc</span>
+                            <div class="flex pl-1 w-85 h-41 ">
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                                <div class="flex p-1 border-2">
+                                    <img src="image/product.png" alt="" height="30px" width="30px">
+                                    <span class="pl-2">Den</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex pt-10">
+                        </div>
+                        <span>So luong</span>
+                        <div class="ml-10 input-group" style="width: 130px;">
+                            <div class="border-2 input-group-btn">
+                                <button class="btn">
+                                    <i class="">-</i>
+                                </button>
+                            </div>
+                            <input type="text" class="text-center border-2 form-control " value="1">
+                            <div class="border-2 input-group-btn">
+                                <button class=" btn">
+                                    <i class="">+</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex pt-10 max-sm:hidden">
+                        <div class="mr-3 color-changing-border">
+                            <button class="bg-red-400 lg:w-[199px] lg:h-[48px]">
+                                Them vao gio hang
+                            </button>
+                        </div>
+                        <div class="ml-1 color-changing-border">
+                            <button class="bg-red-600 lg:w-[189px] lg:h-[48px]">
+                                Mua hang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mo ta -->
+            <div class="pt-3 bgrow mpcustom lg:max-w-[1600px]">
+                <div class="bg-white">
+                    <div class="mb-4 nav nav-tabs" role="tablist">
+                        <a class="nav-item nav-link text-dark active" data-bs-toggle="tab"
+                           href="#tab-pane-1">Description</a>
+                        <a class="nav-item nav-link text-dark" data-bs-toggle="tab" href="#tab-pane-2">Information</a>
+                        <a class="nav-item nav-link text-dark" data-bs-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                    </div>
+                    <div class="p-2 ml-1 tab-content">
+                        <div class="tab-pane fade show active" id="tab-pane-1">
+                            <h4 class="mb-3">Product Description</h4>
+                            <p>
+                                Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
+                                invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
+                                consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
+                                Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
+                                dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                                nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
+                                tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.
+                            </p>
+                            <p>
+                                Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor
+                                consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita
+                                clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum.
+                                Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="tab-pane-2">
+                            <h4 class="mb-3">Additional Information</h4>
+                            <p>
+                                Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
+                                invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
+                                consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
+                                Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
+                                dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                                nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
+                                tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.
+                            </p>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="px-0 list-group-item">
+                                            Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                        </li>
+                                        <li class="px-0 list-group-item">
+                                            Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                        </li>
+                                        <li class="px-0 list-group-item">
+                                            Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                        </li>
+                                        <li class="px-0 list-group-item">
+                                            Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="px-0 list-group-item">
+                                            Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                        </li>
+                                        <li class="px-0 list-group-item">
+                                            Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                        </li>
+                                        <li class="px-0 list-group-item">
+                                            Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                        </li>
+                                        <li class="px-0 list-group-item">
+                                            Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-pane-3">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4 class="mb-4">1 review for "Product Name"</h4>
+                                    <div class="mb-4 media">
+                                        <img src="img/user.jpg" alt="Image" class="mt-1 mr-3 img-fluid"
+                                             style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                            <div class="mb-2 text-primary">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <p>
+                                                Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum
+                                                et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h4 class="mb-4">Leave a review</h4>
+                                    <small>Your email address will not be published. Required fields are marked *</small>
+                                    <div class="my-3 d-flex">
+                                        <p class="mb-0 mr-2">Your Rating * :</p>
+                                        <div class="text-primary">
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="message">Your Review *</label>
+                                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+                                        <div class="mb-0 form-group">
+                                            <input type="submit" value="Leave Your Review" class="px-3 btn btn-primary">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-3 bgrow mpcustom">
+            <div>
+                <h6 class="mb-1 text-gray-500 section-title position-relative text-uppercase ">
+                    Các sản phẩm tương tự
+                </h6>
+                <div class="row lg:w-[1400px] flex max-sm:max-w-[360px]" style="margin-left: 0px;">
+                    <div class="pt-2 mb-3 hover:translate-y-[-1px] col-lg-2 "
+                         style="max-width: 180px; max-height: 304px; height: 304px; width: 180px; padding-left: 0px; ">
+                        <div class="hover:border-red-500 transition ease-in-out delay-50 duration-50 border-2 w-[180px] bg-white">
+                            <a href="#" class="text-black text-decoration-none">
+                                <img src="image/product.png" alt="" srcset="" class="w-[177px] h-[186px]">
+                                <div class="pt-2 pl-2">
+                                    <h6 class="overflow-hidden line-clamp-2 text-ellipsis max-w-[155px]" title="">
+                                        Nuoc hoa
+                                        nam bla bla bla bla bla bla bla bla bla bla bla
+                                    </h6>
+                                    <div class="position-relative pt-[35px]">
+                                        <span>187500</span>
+                                        <span style="margin-left: 45px; font-size: 12px;">Da ban 111</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-2 mb-3 hover:translate-y-[-1px] col-lg-2 "
+                         style="max-width: 180px; max-height: 304px; height: 304px; width: 180px;padding-left: 0px; ">
+                        <div class="hover:border-red-500 transition ease-in-out delay-50 duration-50 border-2 w-[180px] bg-white">
+                            <a href="#" class="text-black text-decoration-none">
+                                <img src="image/product.png" alt="" srcset="" class="w-[177px] h-[186px]">
+                                <div class="pt-2 pl-2">
+                                    <h6 class="overflow-hidden line-clamp-2 text-ellipsis max-w-[155px]" title="">
+                                        Nuoc hoa
+                                        nam bla bla bla bla bla bla bla bla bla bla bla
+                                    </h6>
+                                    <div class="position-relative pt-[35px]">
+                                        <span>187500</span>
+                                        <span style="margin-left: 45px; font-size: 12px;">Da ban 111</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>Chua co</p>
+    }
+</div>

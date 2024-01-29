@@ -53,7 +53,7 @@ namespace Shop.Web.Areas.Pay.Controllers
                 var currentUser = await _userManager.GetUserAsync(User);
                 if (currentUser != null)
                 {
-                    currentUser.TransactionPay.Add(new TransactionPay
+                    currentUser.TransactionPays.Add(new TransactionPay
                     {
                         PaymentMethod = transactionPay.PaymentMethod,
                         AmountMoney = transactionPay.AmountMoney,

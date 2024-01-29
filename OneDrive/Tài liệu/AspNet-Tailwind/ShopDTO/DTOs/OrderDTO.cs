@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using ShopDataAccess.Models;
 
 namespace Shop.DTO.DTOs
 {
@@ -21,6 +22,7 @@ namespace Shop.DTO.DTOs
         public DateTime CreatedDate { get; set; }
         [Display(Name = "Ngày cập nhật")]
         public DateTime UpdatedDate { get; set; }
-        public int User { get; set; }
+        public ShopUser User { get; set; }
+        public ICollection<OrderItemDTO> OrderItems { get; set; }
     }
 }

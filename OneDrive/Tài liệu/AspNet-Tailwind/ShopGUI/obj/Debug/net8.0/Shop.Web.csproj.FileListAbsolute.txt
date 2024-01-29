@@ -1,5 +1,7 @@
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\appsettings.json
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\package-lock.json
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\package.json
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.Web.staticwebassets.runtime.json
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.Web.exe
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.Web.deps.json
@@ -274,8 +276,8 @@ C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.DAL.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.DTO.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.BLL.pdb
-C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.DAL.pdb
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.DTO.pdb
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Shop.DAL.pdb
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.0\Shop.Web.csproj.AssemblyReference.cache
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.0\Shop.Web.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.0\Shop.Web.AssemblyInfoInputs.cache
@@ -302,5 +304,3 @@ C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.0\Shop.Web.pdb
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.0\Shop.Web.genruntimeconfig.cache
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\obj\Debug\net8.0\ref\Shop.Web.dll
-C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\package-lock.json
-C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\package.json

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Shop.DAL.Entity.Cart;
 using Shop.DTO.DTOs;
 using ShopDataAccess.Entity.Blog;
 using ShopDataAccess.Entity.Brand;
@@ -6,6 +7,7 @@ using ShopDataAccess.Entity.Order;
 using ShopDataAccess.Entity.Pay;
 using ShopDataAccess.Entity.Product;
 using ShopDataAccess.Entity.Shipping;
+using ShopDataAccess.Models;
 
 namespace Shop.BLL.AutoMapper
 {
@@ -13,6 +15,7 @@ namespace Shop.BLL.AutoMapper
     {
         public MappingProfile()
         {
+            CreateMap<ShopUser, UserDTO>().ReverseMap();
             CreateMap<Brand, BrandDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<Comment, CommentDTO>().ReverseMap();
@@ -24,6 +27,8 @@ namespace Shop.BLL.AutoMapper
             CreateMap<ProductVideo, ProductVideoDTO>().ReverseMap();
             CreateMap<Shipping, ShippingDTO>().ReverseMap();
             CreateMap<TransactionPay, TransactionPayDTO>().ReverseMap();
+            CreateMap<Cart, CartDTO>().ReverseMap();
+            CreateMap<CartItem, CartItemDTO>().ReverseMap();
         }
     }
 }

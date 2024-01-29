@@ -11,6 +11,7 @@ namespace Shop.DTO.DTOs
     {
         public int OrderItemId { get; set; }
         public int OrderId { get; set; }
+        public virtual OrderDTO Order { get; set; }
         public int ProductId { get; set; }
         [Display(Name = "Số lượng")]
         public int Quantity { get; set; }

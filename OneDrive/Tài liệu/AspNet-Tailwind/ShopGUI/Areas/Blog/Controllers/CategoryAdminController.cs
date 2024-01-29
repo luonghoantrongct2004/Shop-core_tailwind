@@ -144,7 +144,7 @@ namespace Shop.Web.Areas.Blog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,ParentCategoryId,Slug,Description,MetaTitle,MetaDescription")] Catego category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,ParentCategoryId,Slug,Description,MetaTitle,MetaDescription")] CategoryDTO category)
         {
             if (id != category.CategoryId)
             {
@@ -155,7 +155,7 @@ namespace Shop.Web.Areas.Blog.Controllers
             {
                 try
                 {
-                    _service.UpdateAsync(category);
+                    await _service.UpdateAsync(category);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
