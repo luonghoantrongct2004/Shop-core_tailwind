@@ -22,11 +22,16 @@ C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Twitter.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -53,6 +58,7 @@ C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
@@ -61,6 +67,7 @@ C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.JSInterop.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\PREDATOR\OneDrive\Tài liệu\AspNet-Tailwind\ShopGUI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll

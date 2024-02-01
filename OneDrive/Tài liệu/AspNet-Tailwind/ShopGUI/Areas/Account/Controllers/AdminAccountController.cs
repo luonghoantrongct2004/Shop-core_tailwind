@@ -13,11 +13,13 @@ using ShopDataAccess.Models;
 using Shop.Web.ExtendMethod;
 using Shop.Web.Utilities;
 using Shop.BLL.Service.IServices;
+using Shop.DTO.DTOs;
 
 namespace Shop.Web.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Account")]
-    [Route("account/[controller]/[action]")]
+    [Route("Account/[action]")]
     public class AdminAccountController : Controller
     {
         private readonly UserManager<ShopUser> _userManager;
@@ -32,9 +34,8 @@ namespace Shop.Web.Areas.Admin.Controllers
             _emailSender = emailSender;
             _logger = logger;
         }
-
         // GET: /Account/Login
-        [HttpGet("login")]
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
@@ -42,7 +43,7 @@ namespace Shop.Web.Areas.Admin.Controllers
             return View();
         }
         // POST: /Account/Login
-        [HttpPost("/login/")]
+        [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
@@ -51,6 +52,7 @@ namespace Shop.Web.Areas.Admin.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
+                var users = new ShopUser { UserName = model.UserNameOrEmail, Email = model.UserNameOrEmail };
                 var result = await _signInManager.PasswordSignInAsync(model.UserNameOrEmail, model.Password, model.RememberMe, lockoutOnFailure: true);
                 // Tìm UserName theo Email, đăng nhập lại
                 if ((!result.Succeeded) && AppUtilities.IsValidEmail(model.UserNameOrEmail))
@@ -65,6 +67,8 @@ namespace Shop.Web.Areas.Admin.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "Người dùng đã đăng nhập.");
+                    // Lưu thông tin người dùng vào session
+                    HttpContext.Session.SetString("UserId", users.Id);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

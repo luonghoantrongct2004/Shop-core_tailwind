@@ -1,0 +1,254 @@
+﻿@model List<Shop.Web.Models.CartItemProductModel>
+@{
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+
+}
+        <main>
+            <div class="md:max-w-[1370px] mpcustom md:ml-[83px] md:h-40px md:p-2 mb-2 bg-white max-sm:hidden">
+                <div class="flex md:w-[1070px]">
+                    <span class="w-[535px] ml-4">Sản phẩm</span>
+                    <span class="w-[70px] ml-10">Đơn giá</span>
+                    <span class="w-[80px] ml-10">Số lượng</span>
+                    <span class="w-[80px] ml-10">Số tiền</span>
+                    <span class="w-[80px] ml-10">Thao tác</span>
+                </div>
+            </div>
+            <div class="bg-white md:hidden max-sm:p-2">
+                <div class="flex">
+                    <span class="md:w-[535px] max-sm:w-[143px]"><i class="fas fa-arrow-left text-[20px]"></i></span>
+                    <span class="max-sm:w-[93px] font-semibold text-[18px]">Giỏ hàng</span>
+                    <span class="md:w-[70px] max-sm:w-[110px] md:ml-10 text-[18px] max-sm:text-end">Xóa</span>
+                </div>
+            </div>
+                <div class="flex md:max-w-[1370px] mpcustom max-sm:pt-2">
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                <div class="bg-white md:w-[1000px] mr-[10px] max-sm:max-w-[360px]">
+                    <div class="flex ">
+                        <input type="checkbox" class="w-[20px] m-2 text-blue-300" onchange="countCheckboxProduct()">
+                        <div class="flex m-2 max-sm:w-[360px]">
+                            <img src="@item.Products.Image" alt="@item.Products.ProductName" class="md:w-[80px] max-sm:w-[60px] h-80px">
+                            <span class="md:w-[490px] pl-2 pt-4 max-sm:hidden">@item.Products.ProductName</span>
+
+                            <div class="max-sm:w-[137px] md:hidden">
+                                <span class="md:w-[490px] pl-2 pt-1">@item.Products.ProductName</span>
+                                <div class="flex p-2">
+                                    <button class="border-1" onclick="decrementValue(@item.Products.ProductId)">
+                                        <i class="fas fa-plus md:h-[10px] w-[30px]"></i></button>
+                                    <input id="quantity_@item.Products.ProductId" type="number" value="@item.Quantity" 
+                                    class="form-control quantity-input pl-3 w-[35px] border-1" min="1"
+                                    onchange="updateQuantity('@item.Products.ProductId', this.value)">
+                                    <button class="border-1 w-[30px]"><i class="fas fa-minus"
+                                        onclick="incrementValue(@item.Products.ProductId)"></i></button>
+                                </div>
+                            </div>
+
+                            <span class="md:w-[100px] pt-4 max-sm:hidden pl-3">123</span>
+                            <div class="max-sm:w-[50px] md:w-[100px] flex md:mt-[20px] md:h-[35px] border-2 max-sm:hidden">
+                                <button class="border-1"><i class="fas fa-plus md:h-[10px] w-[30px]"></i></button>
+                                <input type="text" name="" id="" value="1" class="pl-3 w-[35px] border-1">
+                                <button class="border-1 w-[30px]"><i class="fas fa-minus"></i></button>
+                            </div>
+                            <span class="md:w-[100px] max-sm:w-[30px] pt-4 text-end">
+                                <script>
+                                    var formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' })
+                                        .format(@item.Products.Price);
+                                    document.write(`<span data-price="${@item.Products.Price}">${formattedPrice}</span>`);
+                                </script>
+                            </span>
+                            <div class="md:w-[120px] max-sm:w-[100px] pt-3 text-end">
+                                <form method="post" >
+                                    <a class="btn" asp-controller="CartHome" asp-action="RemoveCart"
+                                    asp-route-productId="@item.Products.ProductId" title="Xóa">
+                                    <i class="fas fa-trash"></i></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+                }
+                else
+                {
+                <div>
+                    <p class="text-black">Bạn chưa ưng được sản phẩm nào. <a asp-controller="Home" asp-action="Index"> Trở về trang chủ tiếp.</a></p>
+                </div>
+                }
+                <div class="bg-white md:max-w-[360px] md:w-[360px]">
+                    <div class="m-2 max-sm:hidden">
+                        <h5>Tóm tắt</h5>
+                        <div>
+                            <div class="flex flex-column">
+                        <label class="pb-2">Địa chỉ giao hàng</label>
+                        <select  class="border-2 border-pink-300">
+                            <option value="@ViewBag.Address"></option>
+                        </select>
+                        </div>
+                            <hr>
+                            <div>
+                                <label for="">Tổng tiền <span id="selectedCount">0</span> sản phẩm</label>
+                                <span id="totalAmount" class="ml-[60px]">0.000</span>
+                            </div>
+                            <hr>
+                            <div>
+                                <label for="">Phí vận chuyển</label>
+                                <span class="ml-[108px]">
+                                    <script>
+                                        var formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' })
+                                        .format("45000");
+                                        document.write(formattedPrice);
+                                    </script>
+                                </span>
+                            </div>
+                            <hr>
+                            <div>
+                                <label for="">Giảm giá</label>
+                                <span class="ml-[151px]">
+                                    <script>
+                                        var formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format("0");
+                                        document.write(formattedPrice);
+                                    </script>
+                                </span>
+                            </div>
+                            <hr>
+                            <div>
+                                <label for="" class="pb-2">Phương thức thanh toán</label>
+                                <div>
+                                    <button class="p-2 border-1" onclick="selectPaymentMethod('creditCard')"
+                                    id="creditCardButton">
+                                        Thẻ tín dụng
+                                    </button>
+                                    <button class="p-2 border-2" onclick="selectPaymentMethod('cashOnDelivery')"
+                                    id="cashOnDeliveryButton">
+                                        Thanh toán khi nhận hàng
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <label for="">Tổng tiền</label>
+                                <span class="ml-[151px]">120.000</span>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="ml-[113px]">
+                            <button class="p-2 text-white bg-pink-500">Đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+@section Scripts{
+    <script>
+        function incrementValue(itemId) {
+            var input = document.getElementById('quantity_' + itemId);
+            var value = parseInt(input.value, 10);
+            input.value = value + 1;
+            UpdateQuantity(itemId, input.value);
+        };
+
+
+        function decrementValue(itemId) {
+            var input = document.getElementById('quantity_' + itemId);
+            var value = parseInt(input.value, 10);
+            if (value > 0) {
+                input.value = value - 1;
+                UpdateQuantity(itemId, input.value);
+            }
+        };
+        function UpdateQuantity(productId, quantity) {
+            $.ajax({
+                url: '/CartHome/UpdateQuantityAsyn',
+                type: 'post',
+                data: { productId: productId, quantity: quantity },
+                success: function (res) {
+                    if (res.success) {
+                        $('#quantity_' + productId).val(quantity);
+                        updateTotal();
+                    } else {
+                        alert(res.message || 'Có lỗi xảy ra khi cập nhật số lượng!');
+                    }
+                },
+                error: function () {
+                    alert('Đã có lỗi xảy ra trong quá trình gửi yêu cầu.');
+                }
+            });
+        };
+        function updateTotal() {
+            $.ajax({
+                url: '/CartHome/GetCartTotal',
+                type: 'get',
+                success: function (total) {
+                    var formattedTotal = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total);
+                    $("#total-price").text(formattedTotal);
+                },
+                error: function () {
+                    alert('Đã có lỗi xảy ra khi cập nhật giá tổng cộng.');
+                }
+            });
+        };
+    </script>
+    <script>
+        function countCheckboxProduct(){
+            var checkboxs = document.querySelectorAll('.flex input[type="checkbox"]');
+            var selectedCount = 0;
+            int total = 0;
+            checkboxs.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    selectedCount++;
+
+                    var price = parseFloat(checkbox.dataset.price || 0);
+                    total += price;
+                }
+            });
+            var formattedTotal = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total);
+            document.getElementById('selectedCount').textContent = selectedCount;
+            document.getElementById('totalAmount').textContent = formattedTotal;
+        }
+    </script>
+    <script>
+        let selectedPaymentMethod = null;
+
+        function selectPaymentMethod(method) {
+            // Lưu giá trị phương thức thanh toán được chọn
+            selectedPaymentMethod = method;
+
+            // Gọi hàm xử lý sau khi chọn phương thức thanh toán (nếu cần)
+            handlePaymentMethodSelection();
+
+            // Loại bỏ class "active" từ tất cả các nút
+            document.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Thêm class "active" cho nút được chọn
+            document.getElementById(`${method}Button`).classList.add('active');
+        }
+
+        function handlePaymentMethodSelection() {
+            // Xử lý khi phương thức thanh toán được chọn
+            console.log("Selected Payment Method:", selectedPaymentMethod);
+            // Bạn có thể thêm các xử lý khác tại đây
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("api/UserAPI/GetAddress")
+                .then(response => response.json()
+                    .then(data => {
+                        var addressData = data.address;
+                        var addressSelect = document.getElementById("addressSelect");
+                        addressData.forEach(function (address) {
+                            var addressOptions = document.createElement("option");
+                            addressOptions.value = address,
+                                addressOptions.text = address,
+                                addressSelect.add(addressOptions);
+                        });
+                    })
+                    .catch(err => console.error("Have error address api", err));
+        });
+    </script>
+}

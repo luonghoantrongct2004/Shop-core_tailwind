@@ -42,6 +42,12 @@ builder.Services.AddSingleton<SendMailService>();
 builder.Services.AddIdentity<ShopUser, IdentityRole>()
     .AddEntityFrameworkStores<ShopDbContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // Truy cập IdentityOptions
 builder.Services.Configure<IdentityOptions>(options => {
@@ -142,11 +148,12 @@ app.UseCustomStatusCodePage();//custom err
 
 app.UseRouting();
 
+app.UseSession();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-
-app.UseEndpoints(endpoints =>
+/*app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
         name: "areaRoute",
@@ -156,7 +163,15 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
-});
+});*/
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "areaRoute",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 
 //app.MapRazorPages();//endpoin cho razor 
 

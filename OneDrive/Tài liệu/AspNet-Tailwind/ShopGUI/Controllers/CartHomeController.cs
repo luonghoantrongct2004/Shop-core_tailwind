@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Shop.BLL.Service.IServices;
 using Shop.DAL.Entity.Cart;
 using Shop.DTO.DTOs;
@@ -12,13 +14,21 @@ namespace Shop.Web.Controllers
     {
         private readonly ShopDbContext _context; 
         private static readonly List<CartItemProductModel> CartItems = new List<CartItemProductModel>();
-        public CartHomeController(ShopDbContext context)
+        private readonly UserManager<ShopUser> _userManager;
+        public CartHomeController(ShopDbContext context, UserManager<ShopUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
-        public IActionResult Index()
+        public IActionResult Cart(string? userId)
         {
-            return View(CartItems);
+            var user = _userManager.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null || user.Address == null)
+            {
+                user.Address = "Chưa có địa chỉ";
+            }
+            ViewBag.Address = user.Address;
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity, string userId)
